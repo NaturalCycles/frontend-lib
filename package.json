@@ -1,10 +1,7 @@
 {
   "name": "@naturalcycles/frontend-lib",
   "scripts": {},
-  "dependencies": {
-    "@naturalcycles/js-lib": "^8.7.1",
-    "@naturalcycles/nodejs-lib": "^6.19.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@naturalcycles/dev-lib": "^8.3.0",
     "@types/node": "^12.7.8",

@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/NaturalCycles/frontend-lib/compare/v1.0.1...v1.1.0) (2020-04-12)
+
+
+### Features
+
+* getKy, topbar ([ecdff0e](https://github.com/NaturalCycles/frontend-lib/commit/ecdff0e8e7071aae41e07d2fb4bd95b998e6a528))
+
 ## [1.0.1](https://github.com/NaturalCycles/frontend-lib/compare/v1.0.0...v1.0.1) (2019-09-28)
 
 

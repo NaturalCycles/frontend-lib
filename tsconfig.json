@@ -1,8 +1,10 @@
 {
-  "extends": "@naturalcycles/dev-lib/cfg/tsconfig.json",
+  "extends": "./cfg/tsconfig.json",
   "compilerOptions": {
-    "outDir": "dist"
+    "outDir": "dist",
+    "target": "es2015",
+    "lib": ["es2018", "dom", "dom.iterable"]
   },
   "include": ["src"],
-  "exclude": ["**/__exclude", "**/@linked"]
+  "exclude": ["**/__exclude"]
 }

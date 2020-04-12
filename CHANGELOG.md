@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/NaturalCycles/frontend-lib/compare/v1.1.0...v1.1.1) (2020-04-12)
+
+
+### Bug Fixes
+
+* logging ([2cc2437](https://github.com/NaturalCycles/frontend-lib/commit/2cc24373bfa249bd212e8014d7d5b34b02922164))
+
 # [1.1.0](https://github.com/NaturalCycles/frontend-lib/compare/v1.0.1...v1.1.0) (2020-04-12)
 
 

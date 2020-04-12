@@ -86,7 +86,7 @@ export function getKy(opt: GetKyOptions = {}): typeof ky {
 
             console.log(...tokens)
           }
-          console.log('after', req, _options, res)
+          // console.log('after', req, _options, res)
         },
       ],
     },

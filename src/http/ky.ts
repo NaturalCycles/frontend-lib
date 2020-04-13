@@ -5,8 +5,8 @@ import {
   errorObjectToHttpError,
   HttpErrorData,
   jsonParseIfPossible,
+  since,
 } from '@naturalcycles/js-lib'
-import { since } from '@naturalcycles/time-lib'
 import ky from 'ky'
 import { topbar } from '..'
 import { GetKyOptions } from './ky.model'

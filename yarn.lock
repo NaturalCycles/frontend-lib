@@ -689,9 +689,9 @@
     yargs "^15.1.0"
 
 "@naturalcycles/js-lib@^10.0.0", "@naturalcycles/js-lib@^10.2.1":
-  version "10.2.1"
-  resolved "https://registry.yarnpkg.com/@naturalcycles/js-lib/-/js-lib-10.2.1.tgz#a5f13ea19487b0a1baaa2bf40eb36bdac12798ba"
-  integrity sha512-c8iGmO2KkU8mL0Oat3cxzsABDZ/xd5xlBTCICDX1Vg7hfLtZTsnPr7MfCbOBriPnWazzRDgVXaakPmI9Kxto2Q==
+  version "10.4.0"
+  resolved "https://registry.yarnpkg.com/@naturalcycles/js-lib/-/js-lib-10.4.0.tgz#2b97a4d6092557929f3c6a287b9c28f2e080b6b9"
+  integrity sha512-V00iSl2H5NmMdAHUryLjRCbtaML9AgIqAELziNa3PSZxWCins8lintaFFyKgNaSKJ/2Y8RwLqH2VT9dL5oijHQ==
 
 "@naturalcycles/nodejs-lib@^9.0.0", "@naturalcycles/nodejs-lib@^9.1.1":
   version "9.1.3"
@@ -718,7 +718,7 @@
     through2-concurrent "^2.0.0"
     yargs "^15.3.1"
 
-"@naturalcycles/time-lib@^1.0.0", "@naturalcycles/time-lib@^1.11.1", "@naturalcycles/time-lib@^1.5.0":
+"@naturalcycles/time-lib@^1.0.0", "@naturalcycles/time-lib@^1.5.0":
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/@naturalcycles/time-lib/-/time-lib-1.11.1.tgz#e13035da852893b67de3957b967db111401577ea"
   integrity sha512-7b0muiCoyS3ODfVrZq0N3BgC+ZZIbhSu764C4vkGiVU/fmbk0/bbnqsZVyeulr3gf19yV36TrcIJoudtnqom3A==

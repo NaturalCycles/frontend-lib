@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/NaturalCycles/frontend-lib/compare/v1.1.1...v1.2.0) (2020-04-13)
+
+
+### Features
+
+* loadScript (moved here from js-lib) ([693c05d](https://github.com/NaturalCycles/frontend-lib/commit/693c05d9bfe2eef561bb7a8a117f6fb7baee8d42))
+* remove time-lib dep ([6d39859](https://github.com/NaturalCycles/frontend-lib/commit/6d398594fd34251c04cac9c944404a0e275882d2))
+
 ## [1.1.1](https://github.com/NaturalCycles/frontend-lib/compare/v1.1.0...v1.1.1) (2020-04-12)
 
 

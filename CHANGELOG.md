@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/NaturalCycles/frontend-lib/compare/v1.2.0...v2.0.0) (2020-04-19)
+
+
+### Bug Fixes
+
+* adopt js-lib@12 ([ef852b4](https://github.com/NaturalCycles/frontend-lib/commit/ef852b411f377d1b47e6b9e42e2d0a7608fd2ba0))
+
+
+### BREAKING CHANGES
+
+* since js-lib is a peerDependency here, we need to bump major
+
 # [1.2.0](https://github.com/NaturalCycles/frontend-lib/compare/v1.1.1...v1.2.0) (2020-04-13)
 
 

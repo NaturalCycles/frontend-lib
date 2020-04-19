@@ -1,11 +1,11 @@
 import {
-  anyToErrorMessage,
-  anyToErrorObject,
   ErrorObject,
-  errorObjectToHttpError,
   HttpErrorData,
-  jsonParseIfPossible,
-  since,
+  _anyToErrorMessage,
+  _anyToErrorObject,
+  _errorObjectToHttpError,
+  _jsonParseIfPossible,
+  _since,
 } from '@naturalcycles/js-lib'
 import ky from 'ky'
 import { topbar } from '..'
@@ -51,7 +51,7 @@ export function getKy(opt: GetKyOptions = {}): typeof ky {
               res.status,
               req.method,
               req.url,
-              req.started && since(req.started),
+              req.started && _since(req.started),
             ]
               .filter(Boolean)
               .join(' ')
@@ -60,22 +60,22 @@ export function getKy(opt: GetKyOptions = {}): typeof ky {
 
             if (opt.logResponse || !res.ok) {
               try {
-                const body = jsonParseIfPossible(await res.text())
+                const body = _jsonParseIfPossible(await res.text())
 
                 if (!res.ok) {
-                  const errMsgWithBody = anyToErrorMessage(body, true)
+                  const errMsgWithBody = _anyToErrorMessage(body, true)
                   tokens.push(errMsgWithBody)
 
                   if (opt.onError) {
-                    const errObj = anyToErrorObject(body) as ErrorObject<HttpErrorData>
+                    const errObj = _anyToErrorObject(body) as ErrorObject<HttpErrorData>
                     errObj.message = [firstToken, errObj.message].join('\n')
                     errObj.data.httpStatusCode = res.status
-                    opt.onError(errorObjectToHttpError(errObj))
+                    opt.onError(_errorObjectToHttpError(errObj))
                   }
 
                   // currently alerts on each retry, we probably don't want that
                   if (opt.alertOnError) {
-                    const errMsg = [firstToken, anyToErrorMessage(body, true)].join('\n')
+                    const errMsg = [firstToken, _anyToErrorMessage(body, true)].join('\n')
                     alert(errMsg)
                   }
                 } else {

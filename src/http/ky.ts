@@ -22,8 +22,10 @@ declare global {
 
 export function getKy(opt: GetKyOptions = {}): typeof ky {
   return ky.create({
+    ...opt,
     throwHttpErrors: opt.throwOnError !== false, // default to true
     hooks: {
+      ...opt.hooks,
       beforeRequest: [
         (req, _options) => {
           // console.log('before', opt, req)
@@ -38,8 +40,12 @@ export function getKy(opt: GetKyOptions = {}): typeof ky {
 
           req.started = Date.now()
         },
+        // User hooks go AFTER
+        ...(opt.hooks?.beforeRequest || []),
       ],
       afterResponse: [
+        ...(opt.hooks?.afterResponse || []),
+        // User hooks go BEFORE ^^^
         async (req, _options, res) => {
           if (opt.topbar) {
             topbar.hide()

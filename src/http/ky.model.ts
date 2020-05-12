@@ -1,6 +1,13 @@
 import { HttpError } from '@naturalcycles/js-lib'
+import { Options } from 'ky'
 
-export interface GetKyOptions {
+/**
+ * Extends ky.Options, so you can e.g set your hooks there and they will be run in the correct order.
+ *
+ * GetKy puts one BeforeRequest hook BEFORE your hooks (to enrich the request).
+ * GetKy puts one AfterResponse hook AFTER your hooks (to handle errors).
+ */
+export interface GetKyOptions extends Options {
   /**
    * @default false
    */

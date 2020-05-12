@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.0.0...v2.1.0) (2020-05-12)
+
+
+### Features
+
+* GetKyOptions now extend ky.Options ([49fb951](https://github.com/NaturalCycles/frontend-lib/commit/49fb951fe4be63489fdbf4367886cb981872106b))
+
 # [2.0.0](https://github.com/NaturalCycles/frontend-lib/compare/v1.2.0...v2.0.0) (2020-04-19)
 
 

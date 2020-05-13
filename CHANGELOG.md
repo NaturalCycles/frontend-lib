@@ -1,3 +1,10 @@
+## [2.1.4](https://github.com/NaturalCycles/frontend-lib/compare/v2.1.3...v2.1.4) (2020-05-13)
+
+
+### Bug Fixes
+
+* export more ky types ([033d068](https://github.com/NaturalCycles/frontend-lib/commit/033d068956c1c30d1f3d883ed7acee269250012c))
+
 ## [2.1.3](https://github.com/NaturalCycles/frontend-lib/compare/v2.1.2...v2.1.3) (2020-05-13)
 
 

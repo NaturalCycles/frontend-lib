@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/NaturalCycles/frontend-lib/compare/v2.1.0...v2.1.1) (2020-05-13)
+
+
+### Bug Fixes
+
+* getKy to throw HttpError properly ([11a2259](https://github.com/NaturalCycles/frontend-lib/commit/11a2259d5f86f8373fa1a570b7488e3698a60d3e))
+
 # [2.1.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.0.0...v2.1.0) (2020-05-12)
 
 

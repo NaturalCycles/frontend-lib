@@ -1,5 +1,5 @@
-import { HttpError } from '@naturalcycles/js-lib'
-import { Options } from 'ky'
+import type { HttpError } from '@naturalcycles/js-lib'
+import type { Options } from 'ky'
 
 /**
  * Extends ky.Options, so you can e.g set your hooks there and they will be run in the correct order.
@@ -37,11 +37,6 @@ export interface GetKyOptions extends Options {
    * Providing a callback doesn't cancel any other options, such as throwOnError or alertOnError.
    */
   onError?: (err: HttpError) => any
-
-  /**
-   * @default true
-   */
-  throwOnError?: boolean
 
   /**
    * @default false

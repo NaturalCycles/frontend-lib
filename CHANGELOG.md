@@ -1,3 +1,15 @@
+## [2.1.6](https://github.com/NaturalCycles/frontend-lib/compare/v2.1.5...v2.1.6) (2020-05-13)
+
+
+### Bug Fixes
+
+* revert, publish ([5c3cb25](https://github.com/NaturalCycles/frontend-lib/commit/5c3cb255010f94c0f439791f41b8b3cf23a838ad))
+
+
+### Reverts
+
+* Revert "fix: fork ky" ([26b8147](https://github.com/NaturalCycles/frontend-lib/commit/26b81474d290a204062fba575aacf41714da8074))
+
 ## [2.1.5](https://github.com/NaturalCycles/frontend-lib/compare/v2.1.4...v2.1.5) (2020-05-13)
 
 

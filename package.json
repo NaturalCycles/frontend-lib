@@ -1,19 +1,24 @@
 {
   "name": "@naturalcycles/frontend-lib",
   "scripts": {
-    "build-prod": "build-prod-esm-cjs"
+    "build-prod": "build-prod-esm-cjs",
+    "roll": "rollup -c"
   },
   "peerDependencies": {
-    "@naturalcycles/js-lib": ">=12.0.1"
+    "@naturalcycles/js-lib": ">=12.0.1",
+    "tslib": ">=1.10.0"
   },
   "dependencies": {
-    "ky": "^0.19.0"
+    "ky": "^0.19.1"
   },
   "devDependencies": {
     "@naturalcycles/dev-lib": "^10.14.4",
     "@naturalcycles/js-lib": "^13.1.2",
+    "@rollup/plugin-node-resolve": "^7.1.3",
+    "@rollup/plugin-typescript": "^4.1.1",
     "@types/node": "^13.11.1",
-    "jest": "^26.0.1"
+    "jest": "^26.0.1",
+    "rollup": "^2.9.1"
   },
   "files": [
     "dist",

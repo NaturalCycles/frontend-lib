@@ -1,0 +1,19 @@
+<script type="module">
+  import { getKy } from '../../tmp/dist-umd/'
+
+  ;(async () => {
+    const api = getKy({
+      logStart: true,
+      logFinished: true,
+      logResponse: true,
+      alertOnError: true,
+    })
+
+    try {
+      const r = await api.get(`./data.json`).json()
+      console.log(r)
+    } catch (err) {
+      console.log(typeof err, err.data)
+    }
+  })()
+</script>

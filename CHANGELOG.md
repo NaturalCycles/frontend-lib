@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/NaturalCycles/frontend-lib/compare/v2.1.1...v2.1.2) (2020-05-13)
+
+
+### Bug Fixes
+
+* bundlephobia ([4c4e71e](https://github.com/NaturalCycles/frontend-lib/commit/4c4e71eac955367333febf3c4708d3552bce0e75))
+
 ## [2.1.1](https://github.com/NaturalCycles/frontend-lib/compare/v2.1.0...v2.1.1) (2020-05-13)
 
 

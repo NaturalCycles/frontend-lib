@@ -7,8 +7,8 @@ import {
   _jsonParseIfPossible,
   _since,
 } from '@naturalcycles/js-lib'
-import type { RetryOptions } from '../vendor/ky/index.d'
-import { kyLib as ky } from '../vendor/ky/ky'
+import ky from 'ky'
+import type { RetryOptions } from 'ky'
 import { topbar } from '../vendor/topbar/topbar'
 import type { GetKyOptions } from './getKy.model'
 

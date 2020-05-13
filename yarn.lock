@@ -664,9 +664,9 @@
     typescript "^3.8.3"
 
 "@naturalcycles/dev-lib@^10.14.4":
-  version "10.15.4"
-  resolved "https://registry.yarnpkg.com/@naturalcycles/dev-lib/-/dev-lib-10.15.4.tgz#b5889053661bd8eec9ed5e800e691b06d00c3388"
-  integrity sha512-muFtXIr1UWeRhWa1xIUmwN1ZLYmQyxsMAO/vvtmVNunu2GFsIpkxF2Y7EcuNVEXOGnxsewPgiHzluQ4BR9bn1Q==
+  version "10.15.3"
+  resolved "https://registry.yarnpkg.com/@naturalcycles/dev-lib/-/dev-lib-10.15.3.tgz#b6724fb516700361837314ed4c7e19e69a63baee"
+  integrity sha512-GeO3Jmzr6THdZkkBcA6faFTpDBTVTFtSyg45Mnyov9O9e7auThjlprFPsFj+0AzxWE35/nW6gihVTWxA56BXVw==
   dependencies:
     "@commitlint/cli" "^8.0.0"
     "@commitlint/config-conventional" "^8.0.0"
@@ -677,7 +677,7 @@
     "@naturalcycles/time-lib" "^3.0.1"
     "@types/fs-extra" "^8.0.0"
     "@types/jest" "^25.1.0"
-    "@types/node" "^14.0.0"
+    "@types/node" "^13.1.1"
     "@types/yargs" "^15.0.0"
     command-exists "^1.2.8"
     execa "^4.0.0"
@@ -708,9 +708,9 @@
     yargs "^15.1.0"
 
 "@naturalcycles/js-lib@^13.0.0", "@naturalcycles/js-lib@^13.1.2":
-  version "13.1.4"
-  resolved "https://registry.yarnpkg.com/@naturalcycles/js-lib/-/js-lib-13.1.4.tgz#5c79d7780cd30286d9b3a90cbf467c28bf77ffa6"
-  integrity sha512-9a96C71NPRvo9trJuZDEycUlj4LHNi0kDqu/Q2uIMRK8Fx3AFh9HY6Uad83VpBVQ7BPrlVYoqs8rzvK+CcThHg==
+  version "13.1.2"
+  resolved "https://registry.yarnpkg.com/@naturalcycles/js-lib/-/js-lib-13.1.2.tgz#21f31d0d0a800d4aa8425e47ca4f472ce5f4f73b"
+  integrity sha512-50lDM6b0l6k+sW02fyUgtMjtKaMk4hI2jCvNL5qMoCEmwwnUoFvT62uCuVqZkrsmmmJF3GeGhqmGyKjMwrTTyA==
 
 "@naturalcycles/nodejs-lib@^10.0.0", "@naturalcycles/nodejs-lib@^10.1.0":
   version "10.4.2"
@@ -739,9 +739,9 @@
     yargs "^15.3.1"
 
 "@naturalcycles/time-lib@^3.0.1":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@naturalcycles/time-lib/-/time-lib-3.0.4.tgz#fb6ebfebbee29a9bfb8d2b5a49a8f4e283dbb348"
-  integrity sha512-Mbf6zdr8vVLaxtsvDVegGMW10S3apH3E+sIwS3tvSEmlR6ejrioPRU+0KsavIVYM2sspy3zzk1QaNmZ+FHOl5A==
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@naturalcycles/time-lib/-/time-lib-3.0.3.tgz#154162e3cebf285bfe9e7260bf157874b8e00e31"
+  integrity sha512-aSzevO+LvSiI1kfyPkNJB51FomoTIpop8UpkSm/0fnUv6H11o1ErfrOrKZCQCRlVaSuhSQDlpqzRe8wQ/V9J/w==
   dependencies:
     dayjs "^1.8.26"
 
@@ -949,10 +949,10 @@
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.0.tgz#69a23a3ad29caf0097f06eda59b361ee2f0639f6"
   integrity sha1-aaI6OtKcrwCX8G7aWbNh7i8GOfY=
 
-"@types/node@*", "@types/node@^14.0.0", "@types/node@^14.0.1":
-  version "14.0.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.1.tgz#5d93e0a099cd0acd5ef3d5bde3c086e1f49ff68c"
-  integrity sha512-FAYBGwC+W6F9+huFIDtn43cpy7+SzG+atzRiTfdp3inUKL2hXnd4rG8hylJLIh4+hqrQy1P17kvJByE/z825hA==
+"@types/node@*", "@types/node@^13.1.1", "@types/node@^13.11.1":
+  version "13.13.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.5.tgz#96ec3b0afafd64a4ccea9107b75bf8489f0e5765"
+  integrity sha512-3ySmiBYJPqgjiHA7oEaIo2Rzz0HrOZ7yrNO5HWyaE5q0lQ3BppDZ3N53Miz8bw2I7gh1/zir2MGVZBvpb1zq9g==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -992,9 +992,9 @@
     "@types/through2" "*"
 
 "@types/through2@*":
-  version "2.0.35"
-  resolved "https://registry.yarnpkg.com/@types/through2/-/through2-2.0.35.tgz#9add1643da9f936ecf0622311759b33e881047e8"
-  integrity sha512-5puhsegK8DdiZkVL71+iL67KxKd92l7kzzzeclc+idlp5L6PbjxDDQX9JCIA6jOUS9aNHgcmONyW5CRtZUvKFw==
+  version "2.0.34"
+  resolved "https://registry.yarnpkg.com/@types/through2/-/through2-2.0.34.tgz#9c2a259a238dace2a05a2f8e94b786961bc27ac4"
+  integrity sha512-nhRG8+RuG/L+0fAZBQYaRflXKjTrHOKH8MFTChnf+dNVMxA3wHYYrfj0tztK0W51ABXjGfRCDc0vRkecCOrsow==
   dependencies:
     "@types/node" "*"
 
@@ -3513,6 +3513,11 @@ kleur@^3.0.3:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
 
+ky@^0.19.1:
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/ky/-/ky-0.19.1.tgz#c533884028c83f78167d12905dfecaf6dd760bec"
+  integrity sha512-ZwciYrfaWpDI72U2HAruuGYGFW3PCfGNdWWSANGGssg9BGm4rRJ9s/sApiiRpj+8Y245/hlZW9c60zudLr6iwA==
+
 leven@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/leven/-/leven-3.1.0.tgz#77891de834064cccba82ae7842bb6b14a13ed7f2"
@@ -4715,9 +4720,9 @@ rimraf@^3.0.0:
     glob "^7.1.3"
 
 rollup@^2.9.1:
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.10.0.tgz#73332273fa177cd85c1042659dee6f103761be0d"
-  integrity sha512-7BmpEfUN9P6esJzWIn3DmR//90mW6YwYB1t3y48LpF8ITpYtL8s1kEirMKqUu44dVH/6a/rs0EuwYVL3FuRDoA==
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.9.1.tgz#3038ba1378e2ee614b5c9385b8379d7bec4c69ea"
+  integrity sha512-kEZn76R0j+WD4AActu5Np4RShNlewTtJhdUaWNtHwHnAA8AOapyXgH6O7NL2RkcQLHnl49oz1xW1VrDcu5yP+Q==
   optionalDependencies:
     fsevents "~2.1.2"
 

@@ -4,6 +4,7 @@ import {
   _anyToErrorMessage,
   _anyToErrorObject,
   _errorObjectToHttpError,
+  _filterUndefinedValues,
   _jsonParseIfPossible,
   _since,
 } from '@naturalcycles/js-lib'
@@ -61,12 +62,16 @@ export function getKy(opt: GetKyOptions = {}): typeof ky {
           }
 
           if (opt.logFinished || !res.ok) {
+            const { limit } = options.retry as RetryOptions
+
             const firstToken = [
               ' <<',
               res.status,
               req.method,
               req.url,
-              req.started && _since(req.started),
+              // Don't include these tokens in Error message to allow proper Sentry error grouping
+              res.ok && req.tryCount && req.tryCount > 1 && `try#${req.tryCount}/${limit}`,
+              res.ok && req.started && _since(req.started),
             ]
               .filter(Boolean)
               .join(' ')
@@ -84,7 +89,17 @@ export function getKy(opt: GetKyOptions = {}): typeof ky {
 
                 const errObj = _anyToErrorObject(body) as ErrorObject<HttpErrorData>
                 errObj.message = [firstToken, errObj.message].join('\n')
-                errObj.data.httpStatusCode = res.status
+                Object.assign(
+                  errObj.data,
+                  _filterUndefinedValues({
+                    httpStatusCode: res.status,
+                    // These properties are provided to be used in e.g custom Sentry error grouping
+                    // Actually, disabled now, to avoid unnecessary error printing when both msg and data are printed
+                    // method: req.method,
+                    // url: req.url,
+                    // tryCount: req.tryCount,
+                  }),
+                )
                 const httpError = _errorObjectToHttpError(errObj)
 
                 // alert only if it's the last retry

@@ -1,3 +1,10 @@
+## [2.1.8](https://github.com/NaturalCycles/frontend-lib/compare/v2.1.7...v2.1.8) (2020-05-18)
+
+
+### Bug Fixes
+
+* improve getKy Sentry error grouping ([82cf4e2](https://github.com/NaturalCycles/frontend-lib/commit/82cf4e290735c4a355ec5d95d1f72b3e751d58b2))
+
 ## [2.1.7](https://github.com/NaturalCycles/frontend-lib/compare/v2.1.6...v2.1.7) (2020-05-17)
 
 

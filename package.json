@@ -45,7 +45,7 @@
   "engines": {
     "node": ">=10.13"
   },
-  "version": "2.1.7",
+  "version": "2.1.8",
   "description": "Standard library for Frontend applications",
   "author": "Natural Cycles Team",
   "license": "MIT"

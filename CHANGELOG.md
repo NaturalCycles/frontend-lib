@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.2.0...v2.3.0) (2020-05-23)
+
+
+### Features
+
+* getKy logging prints shortUrl without prefixUrl ([3355699](https://github.com/NaturalCycles/frontend-lib/commit/3355699077a291358f76376dcb0fde5ec4aada37))
+
 # [2.2.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.1.8...v2.2.0) (2020-05-23)
 
 

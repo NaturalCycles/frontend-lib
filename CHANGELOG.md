@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.1.8...v2.2.0) (2020-05-23)
+
+
+### Features
+
+* getKy to print "shortUrl" (?search is stripped) ([04ac48c](https://github.com/NaturalCycles/frontend-lib/commit/04ac48cdfaf5784d0c92d7aa22d296a7eeb82d68))
+
 ## [2.1.8](https://github.com/NaturalCycles/frontend-lib/compare/v2.1.7...v2.1.8) (2020-05-18)
 
 

@@ -7,6 +7,7 @@ import {
   _filterUndefinedValues,
   _jsonParseIfPossible,
   _since,
+  _split,
 } from '@naturalcycles/js-lib'
 import ky from 'ky'
 import type { RetryOptions } from 'ky'
@@ -42,9 +43,10 @@ export function getKy(opt: GetKyOptions = {}): typeof ky {
 
           if (opt.logStart) {
             const { limit } = options.retry as RetryOptions
+            const [shortUrl] = _split(req.url, '?', 2)
 
             console.log(
-              [' >>', req.method, req.url, req.tryCount > 1 && `try#${req.tryCount}/${limit}`]
+              [' >>', req.method, shortUrl, req.tryCount > 1 && `try#${req.tryCount}/${limit}`]
                 .filter(Boolean)
                 .join(' '),
             )
@@ -63,12 +65,13 @@ export function getKy(opt: GetKyOptions = {}): typeof ky {
 
           if (opt.logFinished || !res.ok) {
             const { limit } = options.retry as RetryOptions
+            const [shortUrl] = _split(req.url, '?', 2)
 
             const firstToken = [
               ' <<',
               res.status,
               req.method,
-              req.url,
+              shortUrl,
               // Don't include these tokens in Error message to allow proper Sentry error grouping
               res.ok && req.tryCount && req.tryCount > 1 && `try#${req.tryCount}/${limit}`,
               res.ok && req.started && _since(req.started),
@@ -95,8 +98,9 @@ export function getKy(opt: GetKyOptions = {}): typeof ky {
                     httpStatusCode: res.status,
                     // These properties are provided to be used in e.g custom Sentry error grouping
                     // Actually, disabled now, to avoid unnecessary error printing when both msg and data are printed
+                    // Enabled, cause `data` is not printed by default when error is HttpError
                     // method: req.method,
-                    // url: req.url,
+                    url: req.url,
                     // tryCount: req.tryCount,
                   }),
                 )

@@ -43,7 +43,7 @@ export function getKy(opt: GetKyOptions = {}): typeof ky {
 
           if (opt.logStart) {
             const { limit } = options.retry as RetryOptions
-            const [shortUrl] = _split(req.url, '?', 2)
+            const shortUrl = getShortUrl(req.url, options.prefixUrl)
 
             console.log(
               [' >>', req.method, shortUrl, req.tryCount > 1 && `try#${req.tryCount}/${limit}`]
@@ -65,7 +65,7 @@ export function getKy(opt: GetKyOptions = {}): typeof ky {
 
           if (opt.logFinished || !res.ok) {
             const { limit } = options.retry as RetryOptions
-            const [shortUrl] = _split(req.url, '?', 2)
+            const shortUrl = getShortUrl(req.url, options.prefixUrl)
 
             const firstToken = [
               ' <<',
@@ -136,4 +136,16 @@ export function getKy(opt: GetKyOptions = {}): typeof ky {
       ],
     },
   })
+}
+
+function getShortUrl(url: string, prefixUrl?: string | URL): string {
+  const prefix = prefixUrl && String(prefixUrl)
+
+  let [shortUrl] = _split(url, '?', 2)
+
+  if (prefix && shortUrl.startsWith(prefix)) {
+    shortUrl = shortUrl.substr(prefix.length)
+  }
+
+  return shortUrl
 }

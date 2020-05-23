@@ -1,12 +1,12 @@
 <script type="module">
   import { getKy } from '../../tmp/dist-umd/'
-
   ;(async () => {
     const api = getKy({
       logStart: true,
       logFinished: true,
       logResponse: true,
       alertOnError: true,
+      // prefixUrl: 'http://localhost:63342',
     })
 
     try {

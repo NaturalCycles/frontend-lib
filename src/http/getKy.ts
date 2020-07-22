@@ -7,7 +7,6 @@ import {
   _filterUndefinedValues,
   _jsonParseIfPossible,
   _since,
-  _split,
 } from '@naturalcycles/js-lib'
 import ky from 'ky'
 import type { RetryOptions } from 'ky'
@@ -141,7 +140,7 @@ export function getKy(opt: GetKyOptions = {}): typeof ky {
 function getShortUrl(url: string, prefixUrl?: string | URL): string {
   const prefix = prefixUrl && String(prefixUrl)
 
-  let [shortUrl] = _split(url, '?', 2)
+  let [shortUrl] = url.split('?')
 
   if (prefix && shortUrl.startsWith(prefix)) {
     shortUrl = shortUrl.substr(prefix.length)

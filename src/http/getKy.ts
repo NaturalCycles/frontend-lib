@@ -26,6 +26,7 @@ declare global {
 
 export function getKy(opt: GetKyOptions = {}): typeof ky {
   return ky.create({
+    timeout: 60_000, // default to 60 seconds, not 10
     ...opt,
     hooks: {
       ...opt.hooks,

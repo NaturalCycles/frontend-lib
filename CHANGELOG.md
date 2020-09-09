@@ -1,3 +1,10 @@
+## [2.3.2](https://github.com/NaturalCycles/frontend-lib/compare/v2.3.1...v2.3.2) (2020-09-09)
+
+
+### Bug Fixes
+
+* set default ky timeout to 60 seconds (not 10) ([1934cdf](https://github.com/NaturalCycles/frontend-lib/commit/1934cdf8ee7c74db55dc8979526977a39658df3c))
+
 ## [2.3.1](https://github.com/NaturalCycles/frontend-lib/compare/v2.3.0...v2.3.1) (2020-07-22)
 
 

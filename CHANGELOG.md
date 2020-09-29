@@ -1,3 +1,10 @@
+## [2.3.3](https://github.com/NaturalCycles/frontend-lib/compare/v2.3.2...v2.3.3) (2020-09-29)
+
+
+### Bug Fixes
+
+* deps ([2d8719e](https://github.com/NaturalCycles/frontend-lib/commit/2d8719efc0d240193db1278df1bc4a2306e1e131))
+
 ## [2.3.2](https://github.com/NaturalCycles/frontend-lib/compare/v2.3.1...v2.3.2) (2020-09-09)
 
 

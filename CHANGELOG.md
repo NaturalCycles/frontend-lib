@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.3.3...v2.4.0) (2020-10-25)
+
+
+### Features
+
+* loadGTag, loadHotjar ([1e2879e](https://github.com/NaturalCycles/frontend-lib/commit/1e2879e3662380c93c22c7d79002ed9979989b39))
+
 ## [2.3.3](https://github.com/NaturalCycles/frontend-lib/compare/v2.3.2...v2.3.3) (2020-09-29)
 
 

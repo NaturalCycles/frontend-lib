@@ -6,6 +6,7 @@ import type {
   RetryOptions,
 } from 'ky'
 import ky from 'ky'
+import { loadGTag, loadHotjar } from './analytics/analytics'
 import { getKy } from './http/getKy'
 import { GetKyOptions } from './http/getKy.model'
 import { loadScript } from './script/script.util'
@@ -23,4 +24,6 @@ export {
   BeforeRequestHook,
   RetryOptions,
   NormalizedOptions,
+  loadGTag,
+  loadHotjar,
 }

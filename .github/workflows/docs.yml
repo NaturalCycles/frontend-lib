@@ -15,7 +15,7 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: ./node_modules
-          key: ${{ github.repository }}-${{ runner.os }}-${{ hashFiles('yarn.lock') }}-deps-v1
+          key: deps-v1-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
       - { name: yarn, run: yarn --frozen-lockfile }
 
       - name: docs-build

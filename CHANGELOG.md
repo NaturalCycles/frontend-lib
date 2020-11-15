@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.4.0...v2.5.0) (2020-11-15)
+
+
+### Features
+
+* release TranslationService and bumped ky ([7915c94](https://github.com/NaturalCycles/frontend-lib/commit/7915c9412e3907f20312c619f4ac4b1c170e1ac9))
+
 # [2.4.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.3.3...v2.4.0) (2020-10-25)
 
 

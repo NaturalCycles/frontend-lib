@@ -13,6 +13,8 @@ import type { RetryOptions } from 'ky'
 import { topbar } from '../vendor/topbar/topbar'
 import type { GetKyOptions } from './getKy.model'
 
+export type KyInstance = typeof ky
+
 declare global {
   interface Request {
     /**
@@ -24,7 +26,7 @@ declare global {
   }
 }
 
-export function getKy(opt: GetKyOptions = {}): typeof ky {
+export function getKy(opt: GetKyOptions = {}): KyInstance {
   return ky.create({
     timeout: 60_000, // default to 60 seconds, not 10
     ...opt,

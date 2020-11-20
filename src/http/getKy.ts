@@ -4,7 +4,7 @@ import {
   _anyToErrorMessage,
   _anyToErrorObject,
   _errorObjectToHttpError,
-  _filterUndefinedValues,
+  _filterNullishValues,
   _jsonParseIfPossible,
   _since,
 } from '@naturalcycles/js-lib'
@@ -96,7 +96,7 @@ export function getKy(opt: GetKyOptions = {}): KyInstance {
                 errObj.message = [firstToken, errObj.message].join('\n')
                 Object.assign(
                   errObj.data,
-                  _filterUndefinedValues({
+                  _filterNullishValues({
                     httpStatusCode: res.status,
                     // These properties are provided to be used in e.g custom Sentry error grouping
                     // Actually, disabled now, to avoid unnecessary error printing when both msg and data are printed
@@ -143,7 +143,7 @@ export function getKy(opt: GetKyOptions = {}): KyInstance {
 function getShortUrl(url: string, prefixUrl?: string | URL): string {
   const prefix = prefixUrl && String(prefixUrl)
 
-  let [shortUrl] = url.split('?')
+  let shortUrl = url.split('?')[0]!
 
   if (prefix && shortUrl.startsWith(prefix)) {
     shortUrl = shortUrl.substr(prefix.length)

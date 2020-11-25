@@ -1,3 +1,10 @@
+# [2.7.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.6.0...v2.7.0) (2020-11-25)
+
+
+### Features
+
+* bump target es from es2015 to es2017 ([491b170](https://github.com/NaturalCycles/frontend-lib/commit/491b1706ca7256af6f86386fe660d228fb0492bd))
+
 # [2.6.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.5.0...v2.6.0) (2020-11-20)
 
 

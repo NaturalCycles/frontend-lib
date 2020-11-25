@@ -20,7 +20,7 @@ Powered by [vuepress](https://github.com/vuejs/vuepress).
 
 # Packaging
 
-- `main: dist/index.js`: commonjs, es2015
-- `module: dist-esm/index.js`: ESM, es2015
+- `main: dist/index.js`: commonjs, es2017
+- `module: dist-esm/index.js`: ESM, es2017
 - `types: dist/index.d.ts`: typescript types
 - `/src` folder with source `*.ts` files included

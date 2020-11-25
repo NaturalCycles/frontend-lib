@@ -6,8 +6,8 @@
 {
   "compilerOptions": {
     // Target/module
-    "target": "es2015", // adjust to your requirements!
-    "lib": ["es2018", "dom", "dom.iterable"],
+    "target": "es2017", // es2017+ browsers, adjust to your requirements!
+    "lib": ["esnext", "dom", "dom.iterable"],
     "module": "esnext",
     "moduleResolution": "node",
 

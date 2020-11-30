@@ -93,10 +93,12 @@ export function getKy(opt: GetKyOptions = {}): KyInstance {
                 // console.log(options, req, res)
 
                 const errObj = _anyToErrorObject(body) as ErrorObject<HttpErrorData>
+                const originalMessage = errObj.message
                 errObj.message = [firstToken, errObj.message].join('\n')
                 Object.assign(
                   errObj.data,
                   _filterNullishValues({
+                    originalMessage,
                     httpStatusCode: res.status,
                     // These properties are provided to be used in e.g custom Sentry error grouping
                     // Actually, disabled now, to avoid unnecessary error printing when both msg and data are printed
@@ -127,6 +129,7 @@ export function getKy(opt: GetKyOptions = {}): KyInstance {
                 // Propage the error as HttpError, not the stock ky.HTTPError
                 throw httpError
               } else {
+                // logResponse == true
                 tokens.push(body)
               }
             }

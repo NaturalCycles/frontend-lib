@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.7.0...v2.8.0) (2020-11-30)
+
+
+### Features
+
+* getKy to set error.data.originalError ([293fe48](https://github.com/NaturalCycles/frontend-lib/commit/293fe48dfedd7a88e75ca7ef1edbb9797be1d026))
+
 # [2.7.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.6.0...v2.7.0) (2020-11-25)
 
 

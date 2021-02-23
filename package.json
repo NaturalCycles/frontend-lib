@@ -10,7 +10,7 @@
     "tslib": ">=2.0.0"
   },
   "dependencies": {
-    "ky": "^0.26.0"
+    "ky": "^0.27.0"
   },
   "devDependencies": {
     "@naturalcycles/dev-lib": "^10.14.4",

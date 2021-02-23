@@ -1,3 +1,10 @@
+## [2.8.2](https://github.com/NaturalCycles/frontend-lib/compare/v2.8.1...v2.8.2) (2021-02-23)
+
+
+### Bug Fixes
+
+* deps (ky@0.27) ([1599fad](https://github.com/NaturalCycles/frontend-lib/commit/1599fadf60cdb4252f98ac058cc2c611fb70c511))
+
 ## [2.8.1](https://github.com/NaturalCycles/frontend-lib/compare/v2.8.0...v2.8.1) (2021-01-12)
 
 

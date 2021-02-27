@@ -19,25 +19,31 @@ import {
 import { loadScript } from './script/script.util'
 import { topbar, TopBarOptions } from './vendor/topbar/topbar'
 
-export {
+// polyfill globalThis, otherwise `ky` breaks on iOS<12.3
+;(window as any).globalThis = window
+
+export type {
   TopBarOptions,
-  topbar,
   KyInstance,
-  getKy,
   GetKyOptions,
-  loadScript,
-  ky,
   BeforeRetryHook,
   AfterResponseHook,
   BeforeRequestHook,
   RetryOptions,
   NormalizedOptions,
-  loadGTag,
-  loadHotjar,
   TranslationServiceCfg,
-  TranslationService,
   TranslationLoader,
   MissingTranslationHandler,
   FetchTranslationLoaderCfg,
+}
+
+export {
+  topbar,
+  getKy,
+  loadScript,
+  ky,
+  loadGTag,
+  loadHotjar,
+  TranslationService,
   FetchTranslationLoader,
 }

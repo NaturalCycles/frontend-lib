@@ -1,1 +1,3 @@
 test('empty', () => {})
+
+export {}

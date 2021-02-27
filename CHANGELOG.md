@@ -1,3 +1,10 @@
+# [2.10.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.9.0...v2.10.0) (2021-02-27)
+
+
+### Features
+
+* isolatedModules=true, globalThis polyfill for ky ([64503d1](https://github.com/NaturalCycles/frontend-lib/commit/64503d179d48d43ecb885720e9bb08feff775585))
+
 # [2.9.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.8.2...v2.9.0) (2021-02-27)
 
 

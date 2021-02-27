@@ -1,3 +1,10 @@
+# [2.9.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.8.2...v2.9.0) (2021-02-27)
+
+
+### Features
+
+* noPropertyAccessFromIndexSignature=true in shared tsconfig.json ([4e8589e](https://github.com/NaturalCycles/frontend-lib/commit/4e8589e1d51544a2e62353e59c5706d029ff6303))
+
 ## [2.8.2](https://github.com/NaturalCycles/frontend-lib/compare/v2.8.1...v2.8.2) (2021-02-23)
 
 

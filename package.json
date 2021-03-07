@@ -1,7 +1,7 @@
 {
   "name": "@naturalcycles/frontend-lib",
   "scripts": {
-    "build-prod": "build-prod-esm-cjs",
+    "build-prod": "tsc -P ./tsconfig.prod.json",
     "docs-serve": "vuepress dev docs",
     "docs-build": "vuepress build docs"
   },
@@ -26,7 +26,6 @@
   },
   "files": [
     "dist",
-    "dist-esm",
     "cfg",
     "src",
     "!src/test",
@@ -34,8 +33,7 @@
     "!src/**/__snapshots__",
     "!src/**/__exclude"
   ],
-  "main": "dist/index.js",
-  "module": "dist-esm/index.js",
+  "type": "module",
   "types": "dist/index.d.ts",
   "sideEffects": false,
   "publishConfig": {

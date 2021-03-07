@@ -2,9 +2,13 @@
   "extends": "./cfg/tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
+    // "allowJs": true,
     "target": "es2017", // es2017 browsers+
     "lib": ["esnext", "dom", "dom.iterable"]
   },
-  "include": ["src"],
+  "include": [
+    "src"
+    // "node_modules/ky/index.js",
+  ],
   "exclude": ["**/__exclude"]
 }

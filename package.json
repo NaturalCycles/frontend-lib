@@ -1,7 +1,7 @@
 {
   "name": "@naturalcycles/frontend-lib",
   "scripts": {
-    "build-prod": "tsc -P ./tsconfig.prod.json",
+    "build-prod": "build-prod-esm-cjs && kpy ./src/vendor/ky ./dist/vendor/ky && kpy ./src/vendor/ky index.js ./dist-esm/vendor/ky",
     "docs-serve": "vuepress dev docs",
     "docs-build": "vuepress build docs"
   },
@@ -9,10 +9,7 @@
     "@naturalcycles/js-lib": ">=14.0.0",
     "tslib": ">=2.0.0"
   },
-  "dependencies": {
-    "ky": "^0.27.0",
-    "ky-universal": "^0.9.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@naturalcycles/dev-lib": "^10.14.4",
     "@naturalcycles/js-lib": "^14.0.0",
@@ -26,6 +23,7 @@
   },
   "files": [
     "dist",
+    "dist-esm",
     "cfg",
     "src",
     "!src/test",
@@ -33,7 +31,8 @@
     "!src/**/__snapshots__",
     "!src/**/__exclude"
   ],
-  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist-esm/index.js",
   "types": "dist/index.d.ts",
   "sideEffects": false,
   "publishConfig": {

@@ -1,5 +1,5 @@
 import type { HttpError } from '@naturalcycles/js-lib'
-import type { Options } from 'ky'
+import type { Options } from '../vendor/ky'
 
 /**
  * Extends ky.Options, so you can e.g set your hooks there and they will be run in the correct order.

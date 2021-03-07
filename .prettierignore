@@ -1,0 +1,4 @@
+#
+# .prettierignore
+#
+/src/vendor/ky

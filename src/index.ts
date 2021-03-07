@@ -5,7 +5,7 @@ import type {
   NormalizedOptions,
   RetryOptions,
 } from 'ky'
-import ky from 'ky'
+import ky from 'ky-universal'
 import { loadGTag, loadHotjar } from './analytics/analytics'
 import { getKy, KyInstance } from './http/getKy'
 import { GetKyOptions } from './http/getKy.model'

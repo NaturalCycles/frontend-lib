@@ -1,3 +1,10 @@
+# [2.11.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.10.0...v2.11.0) (2021-03-07)
+
+
+### Features
+
+* try to export ky from ky-universal to fix SSR ([de787df](https://github.com/NaturalCycles/frontend-lib/commit/de787df75683f6d0939852e9bf3b7fc61453f07e))
+
 # [2.10.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.9.0...v2.10.0) (2021-02-27)
 
 

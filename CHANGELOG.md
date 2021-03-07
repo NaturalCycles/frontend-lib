@@ -1,3 +1,10 @@
+# [2.13.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.12.0...v2.13.0) (2021-03-07)
+
+
+### Features
+
+* try to transpile+bundle ky again ([76c7eb7](https://github.com/NaturalCycles/frontend-lib/commit/76c7eb750b76f766850f6817008ec421645d2b02))
+
 # [2.12.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.11.0...v2.12.0) (2021-03-07)
 
 

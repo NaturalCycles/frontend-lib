@@ -1,3 +1,10 @@
+## [2.13.1](https://github.com/NaturalCycles/frontend-lib/compare/v2.13.0...v2.13.1) (2021-03-07)
+
+
+### Bug Fixes
+
+* unknown keyword "exports" in cjs dist ([bc9c1cb](https://github.com/NaturalCycles/frontend-lib/commit/bc9c1cb39357f5c06c7fbaed7642f4e51a5349aa))
+
 # [2.13.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.12.0...v2.13.0) (2021-03-07)
 
 

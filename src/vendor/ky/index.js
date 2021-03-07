@@ -80,7 +80,7 @@ const retryAfterStatusCodes = [
     503
 ];
 const stop = Symbol('stop');
-class HTTPError extends Error {
+export class HTTPError extends Error {
     constructor(response, request, options) {
         // Set the message to the status text, such as Unauthorized,
         // with some fallbacks. This message should never be undefined.
@@ -93,7 +93,7 @@ class HTTPError extends Error {
         this.options = options;
     }
 }
-class TimeoutError extends Error {
+export class TimeoutError extends Error {
     constructor(request) {
         super('Request timed out');
         this.name = 'TimeoutError';

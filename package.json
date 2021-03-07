@@ -1,7 +1,7 @@
 {
   "name": "@naturalcycles/frontend-lib",
   "scripts": {
-    "build-prod": "build-prod-esm-cjs && kpy ./src/vendor/ky ./dist/vendor/ky && kpy ./src/vendor/ky index.js ./dist-esm/vendor/ky",
+    "build-prod": "build-prod-esm-cjs",
     "docs-serve": "vuepress dev docs",
     "docs-build": "vuepress build docs"
   },

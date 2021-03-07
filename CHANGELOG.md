@@ -1,3 +1,10 @@
+# [2.12.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.11.0...v2.12.0) (2021-03-07)
+
+
+### Features
+
+* type=module (experimental) ([dad708c](https://github.com/NaturalCycles/frontend-lib/commit/dad708c0408c4c0b5b81a81b390938502f7baf7e))
+
 # [2.11.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.10.0...v2.11.0) (2021-03-07)
 
 

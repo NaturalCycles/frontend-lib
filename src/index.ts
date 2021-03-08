@@ -1,4 +1,5 @@
 import { loadGTag, loadHotjar } from './analytics/analytics'
+import { isBrowser, isNode } from './env'
 import { getKy, KyInstance } from './http/getKy'
 import { GetKyOptions } from './http/getKy.model'
 import { FetchTranslationLoader, FetchTranslationLoaderCfg } from './i18n/fetchTranslationLoader'
@@ -16,11 +17,13 @@ import type {
   NormalizedOptions,
   RetryOptions,
 } from './vendor/ky'
-import ky from './vendor/ky'
+import ky from './vendor/ky-universal'
 import { topbar, TopBarOptions } from './vendor/topbar/topbar'
 
 // polyfill globalThis, otherwise `ky` breaks on iOS<12.3
-;(window as any).globalThis = window
+if (typeof window !== 'undefined') {
+  ;(window as any).globalThis = window
+}
 
 export type {
   TopBarOptions,
@@ -46,4 +49,6 @@ export {
   loadHotjar,
   TranslationService,
   FetchTranslationLoader,
+  isNode,
+  isBrowser,
 }

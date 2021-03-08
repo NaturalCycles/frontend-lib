@@ -22,6 +22,8 @@ export interface TopBarOptions {
   shadowBlur?: number
 }
 
+const browser = typeof window !== 'undefined'
+
 let canvas: any,
   progressTimerId: any,
   fadeTimerId: any,
@@ -84,6 +86,7 @@ export const topbar = {
     }
   },
   show(opts?: TopBarOptions) {
+    if (!browser) return // ssr protection
     if (opts) topbar.config(opts)
     if (showing) return
     showing = true
@@ -102,6 +105,7 @@ export const topbar = {
     }
   },
   progress(to: number | string) {
+    if (!browser) return // ssr protection
     if (typeof to === 'undefined') {
       return currentProgress
     }
@@ -113,7 +117,7 @@ export const topbar = {
     return currentProgress
   },
   hide() {
-    if (!showing) return
+    if (!showing || !browser) return
     showing = false
     if (progressTimerId != null) {
       window.cancelAnimationFrame(progressTimerId)

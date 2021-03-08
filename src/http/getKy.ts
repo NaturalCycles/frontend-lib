@@ -9,7 +9,7 @@ import {
   _since,
 } from '@naturalcycles/js-lib'
 import type { RetryOptions } from '../vendor/ky'
-import ky from '../vendor/ky'
+import ky from '../vendor/ky-universal'
 import { topbar } from '../vendor/topbar/topbar'
 import type { GetKyOptions } from './getKy.model'
 

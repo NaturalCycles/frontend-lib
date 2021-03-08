@@ -18,7 +18,9 @@ jobs:
       - { name: yarn, run: yarn --frozen-lockfile }
 
       - name: build
-        run: yarn build
+        run: yarn build-prod
 
       - name: test
-        run: yarn test-ci
+        run: |
+          yarn test-ci
+          yarn smoke-test

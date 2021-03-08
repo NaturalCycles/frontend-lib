@@ -1,3 +1,10 @@
+## [2.13.2](https://github.com/NaturalCycles/frontend-lib/compare/v2.13.1...v2.13.2) (2021-03-08)
+
+
+### Bug Fixes
+
+* "window is undefined" in ssr, adopt/fork ky-universal ([f2daee3](https://github.com/NaturalCycles/frontend-lib/commit/f2daee3d5e4f540926fe49522769c5cc792ec517))
+
 ## [2.13.1](https://github.com/NaturalCycles/frontend-lib/compare/v2.13.0...v2.13.1) (2021-03-07)
 
 

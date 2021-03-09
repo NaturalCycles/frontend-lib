@@ -1,3 +1,10 @@
+# [2.14.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.13.2...v2.14.0) (2021-03-09)
+
+
+### Features
+
+* use ky-for-people (patched ky) ([46504fa](https://github.com/NaturalCycles/frontend-lib/commit/46504fad4d10204b3dad76b5af45e6f883df6823))
+
 ## [2.13.2](https://github.com/NaturalCycles/frontend-lib/compare/v2.13.1...v2.13.2) (2021-03-08)
 
 

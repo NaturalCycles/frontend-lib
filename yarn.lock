@@ -6743,6 +6743,13 @@ kleur@^3.0.3:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
 
+ky-for-people@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ky-for-people/-/ky-for-people-1.0.0.tgz#31b51ad7d1704546864a6474c0578132b6564a98"
+  integrity sha512-RgyfC8yFSBLrCyba43GAaDG1Px2sAXCHJP7Yko7XthnZQX4uDFtL1cWoq5PK1X9aTipKPaUzUJ4QexuyMxCDeg==
+  dependencies:
+    node-fetch "^2.6.1"
+
 last-call-webpack-plugin@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/last-call-webpack-plugin/-/last-call-webpack-plugin-3.0.0.tgz#9742df0e10e3cf46e5c0381c2de90d3a7a2d7555"

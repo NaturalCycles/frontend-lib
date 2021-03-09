@@ -16,8 +16,9 @@ import type {
   BeforeRetryHook,
   NormalizedOptions,
   RetryOptions,
-} from './vendor/ky'
-import ky from './vendor/ky-universal'
+} from 'ky-for-people'
+import ky from 'ky-for-people'
+
 import { topbar, TopBarOptions } from './vendor/topbar/topbar'
 
 // polyfill globalThis, otherwise `ky` breaks on iOS<12.3

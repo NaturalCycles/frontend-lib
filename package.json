@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@naturalcycles/js-lib": "^14.0.0",
-    "ky-for-people": "^1.0.0"
+    "ky-for-people": "^1.0.0",
+    "type-fest": "^0.21.3"
   },
   "devDependencies": {
     "@naturalcycles/dev-lib": "^10.14.4",

@@ -33,7 +33,7 @@ module.exports = {
         {
           // title: 'Menu',
           collapsable: false,
-          children: ['', 'ky', 'loadScript', 'translation', 'analytics'],
+          children: ['', 'ky', 'loadScript', 'translation', 'analytics', 'adminService'],
         },
       ],
     },

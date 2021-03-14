@@ -15,7 +15,6 @@ translationService.locales: {{ translationService.locales }}
 </template>
 
 <script lang="ts">
-import { pDelay } from '@naturalcycles/js-lib'
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import { FetchTranslationLoader, TranslationService } from '../../../src'

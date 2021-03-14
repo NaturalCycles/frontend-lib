@@ -1,3 +1,12 @@
+import type {
+  AfterResponseHook,
+  BeforeRequestHook,
+  BeforeRetryHook,
+  NormalizedOptions,
+  RetryOptions,
+} from 'ky-for-people'
+import ky from 'ky-for-people'
+import { AdminModeCfg, AdminService } from './admin/adminService'
 import { loadGTag, loadHotjar } from './analytics/analytics'
 import { isBrowser, isNode } from './env'
 import { getKy, KyInstance } from './http/getKy'
@@ -10,15 +19,6 @@ import {
   TranslationServiceCfg,
 } from './i18n/translation.service'
 import { loadScript } from './script/script.util'
-import type {
-  AfterResponseHook,
-  BeforeRequestHook,
-  BeforeRetryHook,
-  NormalizedOptions,
-  RetryOptions,
-} from 'ky-for-people'
-import ky from 'ky-for-people'
-
 import { topbar, TopBarOptions } from './vendor/topbar/topbar'
 
 // polyfill globalThis, otherwise `ky` breaks on iOS<12.3
@@ -39,6 +39,7 @@ export type {
   TranslationLoader,
   MissingTranslationHandler,
   FetchTranslationLoaderCfg,
+  AdminModeCfg,
 }
 
 export {
@@ -52,4 +53,5 @@ export {
   FetchTranslationLoader,
   isNode,
   isBrowser,
+  AdminService,
 }

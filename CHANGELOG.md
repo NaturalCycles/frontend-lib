@@ -1,3 +1,10 @@
+# [2.15.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.14.0...v2.15.0) (2021-03-14)
+
+
+### Features
+
+* AdminService (experimental) ([7c428ac](https://github.com/NaturalCycles/frontend-lib/commit/7c428aca05ae2486717e487897fb8297f5b81b1f))
+
 # [2.14.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.13.2...v2.14.0) (2021-03-09)
 
 

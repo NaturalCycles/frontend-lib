@@ -1,3 +1,10 @@
+## [2.16.1](https://github.com/NaturalCycles/frontend-lib/compare/v2.16.0...v2.16.1) (2021-03-15)
+
+
+### Bug Fixes
+
+* AdminService cfg order ([ed5a7f9](https://github.com/NaturalCycles/frontend-lib/commit/ed5a7f94313939b93873b41c051a6d4943968d1d))
+
 # [2.16.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.15.0...v2.16.0) (2021-03-15)
 
 

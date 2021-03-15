@@ -1,3 +1,10 @@
+# [2.16.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.15.0...v2.16.0) (2021-03-15)
+
+
+### Features
+
+* fitImages (experimental) ([7868c0a](https://github.com/NaturalCycles/frontend-lib/commit/7868c0a603b9d70dfdf164cbb12317ad44144133))
+
 # [2.15.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.14.0...v2.15.0) (2021-03-14)
 
 

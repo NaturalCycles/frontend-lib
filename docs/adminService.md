@@ -1,4 +1,4 @@
-# AdminService
+# AdminService <Badge text="experimental" type="warning"/>
 
 ## Admin Mode
 

@@ -18,6 +18,7 @@ import {
   TranslationService,
   TranslationServiceCfg,
 } from './i18n/translation.service'
+import { FitImage, fitImages, FitImagesCfg } from './image/fitImages'
 import { loadScript } from './script/script.util'
 import { topbar, TopBarOptions } from './vendor/topbar/topbar'
 
@@ -40,6 +41,8 @@ export type {
   MissingTranslationHandler,
   FetchTranslationLoaderCfg,
   AdminModeCfg,
+  FitImagesCfg,
+  FitImage,
 }
 
 export {
@@ -54,4 +57,5 @@ export {
   isNode,
   isBrowser,
   AdminService,
+  fitImages,
 }

@@ -20,14 +20,9 @@ export interface AdminModeCfg {
   onRedDotClick?: () => any
 
   /**
-   * Called when AdminMode was entered.
+   * Called when AdminMode was changed.
    */
-  onEnter?: () => any
-
-  /**
-   * Called when AdminMode was exited.
-   */
-  onExit?: () => any
+  onChange?: (adminMode: boolean) => any
 
   /**
    * Called BEFORE entering AdminMode.
@@ -72,15 +67,14 @@ const NOOP = () => {}
 export class AdminService {
   constructor(cfg?: AdminModeCfg) {
     this.cfg = {
-      ...cfg,
       predicate: e => e.ctrlKey && e.key === 'L',
       persistToLocalStorage: true,
       localStorageKey: '__adminMode__',
       onRedDotClick: NOOP,
-      onEnter: NOOP,
-      onExit: NOOP,
+      onChange: NOOP,
       beforeEnter: () => true,
       beforeExit: () => true,
+      ...cfg,
     }
   }
 
@@ -136,7 +130,7 @@ export class AdminService {
         : localStorage.removeItem(localStorageKey)
     }
 
-    this.adminMode ? this.cfg.onEnter() : this.cfg.onExit()
+    this.cfg.onChange(this.adminMode)
   }
 
   private toggleRedDot(): void {

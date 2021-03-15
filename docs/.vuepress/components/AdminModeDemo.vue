@@ -6,8 +6,7 @@ import Component from 'vue-class-component'
 import { AdminService } from '../../../src'
 
 const adminService = new AdminService({
-  onEnter: () => console.log('Entered Admin mode'),
-  onExit: () => console.log('Exited Admin mode'),
+  onChange: adminMode => console.log({adminMode}),
   onRedDotClick: () => alert('RedDot clicked'),
 })
 

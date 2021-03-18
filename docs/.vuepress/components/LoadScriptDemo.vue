@@ -15,9 +15,8 @@ import { loadScript } from '../../../src'
 export const ErrorHandler = () =>
   _createPromiseDecorator({
     decoratorName: 'ErrorHandler',
-    catchFn: ({err}) => alert(_anyToErrorMessage(err)),
+    catchFn: ({ err }) => alert(_anyToErrorMessage(err)),
   })
-
 
 @Component
 export default class LoadScriptDemo extends Vue {

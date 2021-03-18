@@ -1,3 +1,10 @@
+## [2.16.2](https://github.com/NaturalCycles/frontend-lib/compare/v2.16.1...v2.16.2) (2021-03-18)
+
+
+### Bug Fixes
+
+* loadScript to generate a valid error ([b9365a0](https://github.com/NaturalCycles/frontend-lib/commit/b9365a07e142d38ee2d7db58a9963a1effb4efeb))
+
 ## [2.16.1](https://github.com/NaturalCycles/frontend-lib/compare/v2.16.0...v2.16.1) (2021-03-15)
 
 

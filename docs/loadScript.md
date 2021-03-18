@@ -7,3 +7,7 @@ await loadScript('https://gtm.com/script.js')
 
 Works in old-school (and reliable) way by injecting a `<script>` tag into dom and attaching onload
 event that resolves the promise. `onerror` rejects the promise.
+
+See console output, but it will also do `alert(_anyToErrorMessage(err))`.
+
+<LoadScriptDemo />

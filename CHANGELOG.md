@@ -1,3 +1,10 @@
+# [2.17.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.16.2...v2.17.0) (2021-04-04)
+
+
+### Features
+
+* tslib is a dependency now (was: peerDep) ([3818069](https://github.com/NaturalCycles/frontend-lib/commit/381806913cf53ebd9b3a0051b8f2ea80e13eb882))
+
 ## [2.16.2](https://github.com/NaturalCycles/frontend-lib/compare/v2.16.1...v2.16.2) (2021-03-18)
 
 

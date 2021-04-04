@@ -6,20 +6,17 @@
     "docs-serve": "vuepress dev docs",
     "docs-build": "vuepress build docs"
   },
-  "peerDependencies": {
-    "tslib": ">=2.0.0"
-  },
   "dependencies": {
     "@naturalcycles/js-lib": "^14.0.0",
     "ky-for-people": "^1.0.0",
-    "type-fest": "^0.21.3"
+    "tslib": "^2.0.0",
+    "type-fest": "^1.0.0"
   },
   "devDependencies": {
     "@naturalcycles/dev-lib": "^10.14.4",
     "@types/node": "^14.0.1",
     "jest": "^26.0.1",
     "prettier": "^2.1.2",
-    "tslib": "^2.0.0",
     "vue-class-component": "^7.2.6",
     "vuepress": "^1.7.1",
     "vuepress-plugin-typescript": "^0.3.1"
@@ -46,7 +43,7 @@
     "url": "https://github.com/NaturalCycles/frontend-lib"
   },
   "engines": {
-    "node": ">=12.13.1"
+    "node": ">=14.16.0"
   },
   "version": "2.16.2",
   "description": "Standard library for Frontend applications",

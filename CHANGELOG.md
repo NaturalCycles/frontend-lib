@@ -1,3 +1,10 @@
+## [2.17.1](https://github.com/NaturalCycles/frontend-lib/compare/v2.17.0...v2.17.1) (2021-04-06)
+
+
+### Bug Fixes
+
+* node 14.15+ in package.json ([08c6fa9](https://github.com/NaturalCycles/frontend-lib/commit/08c6fa9231c468989a57e1ba324911b4ce3ff7f9))
+
 # [2.17.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.16.2...v2.17.0) (2021-04-04)
 
 

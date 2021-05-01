@@ -25,8 +25,6 @@
 
 <script lang="ts">
 import { StringMap } from '@naturalcycles/js-lib'
-import Vue from 'vue'
-import Component from 'vue-class-component'
 import { fitImages, FitImage } from '../../../src/image/fitImages'
 
 const imageIds = [
@@ -55,12 +53,15 @@ const imageIds = [
   'vMGM9Y48eIY',
 ]
 
-@Component
-export default class FitImagesDemo extends Vue {
-  maxHeight = 300
-  margin = 8
-
-  images: FitImage[] = []
+export default {
+  data() {
+    return {
+      maxHeight: 300,
+      margin: 8,
+      images: [] as FitImage[],
+      listener: null as Function | null,
+    }
+  },
 
   async mounted() {
     // Preload images
@@ -87,25 +88,25 @@ export default class FitImagesDemo extends Vue {
     this.images = imageIds.map(id => map[id])
 
     this.update()
-  }
+  },
 
-  listener: Function | null = null
+  methods: {
+    update() {
+      const container = document.getElementById('imagesContainer')!
 
-  update() {
-    const container = document.getElementById('imagesContainer')!
+      this.listener?.()
 
-    this.listener?.()
-
-    this.listener = fitImages({
-      container,
-      images: this.images,
-      maxHeight: this.maxHeight,
-      margin: this.margin,
-      onChange: images => {
-        this.images = [...images]
-      },
-    })
-  }
+      this.listener = fitImages({
+        container,
+        images: this.images,
+        maxHeight: this.maxHeight,
+        margin: this.margin,
+        onChange: images => {
+          this.images = [...images]
+        },
+      })
+    }
+  },
 }
 </script>
 

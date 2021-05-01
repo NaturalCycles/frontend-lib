@@ -14,10 +14,9 @@
   },
   "devDependencies": {
     "@naturalcycles/dev-lib": "^10.14.4",
-    "@types/node": "^14.0.1",
+    "@types/node": "^15.0.1",
     "jest": "^26.0.1",
     "prettier": "^2.1.2",
-    "vue-class-component": "^7.2.6",
     "vuepress": "^1.7.1",
     "vuepress-plugin-typescript": "^0.3.1"
   },

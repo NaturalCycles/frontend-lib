@@ -16,7 +16,6 @@ translationService.locales: {{ translationService.locales }}
 
 <script lang="ts">
 import Vue from 'vue'
-import Component from 'vue-class-component'
 import { FetchTranslationLoader, TranslationService } from '../../../src'
 
 const translationService = new TranslationService({
@@ -36,18 +35,23 @@ const tr = (key: string): string => translationService.translate(key)
 
 Vue.filter('tr', tr)
 
-@Component
-export default class TranslationDemo extends Vue {
-  translationService = translationService
-  loading = true
+export default {
+  data() {
+    return {
+      translationService,
+      loading: true,
+    }
+  },
 
-  get tr1() {
-    return translationService.translate('key1')
-  }
+  computed: {
+    tr1() {
+      return translationService.translate('key1')
+    },
 
-  get tr2() {
-    return translationService.translate('key2')
-  }
+    tr2() {
+      return translationService.translate('key2')
+    }
+  },
 
   async mounted() {
     // await pDelay(3000)

@@ -1,8 +1,6 @@
 <template></template>
 
 <script lang="ts">
-import Vue from 'vue'
-import Component from 'vue-class-component'
 import { AdminService } from '../../../src'
 
 const adminService = new AdminService({
@@ -10,8 +8,7 @@ const adminService = new AdminService({
   onRedDotClick: () => alert('RedDot clicked'),
 })
 
-@Component
-export default class AdminModeDemo extends Vue {
+export default {
   mounted() {
     adminService.startListening()
   }

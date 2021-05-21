@@ -15,6 +15,7 @@ export interface GetKyOptions extends Options {
 
   /**
    * Log when request is finished.
+   *
    * @default false
    */
   logFinished?: boolean

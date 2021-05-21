@@ -17,12 +17,14 @@ export interface FitImagesCfg {
 
   /**
    * Max image height in pixels.
+   *
    * @default 300
    */
   maxHeight?: number
 
   /**
    * Margin between images.
+   *
    * @default 8
    */
   margin?: number

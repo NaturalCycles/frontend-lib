@@ -8,7 +8,6 @@ import {
   _jsonParseIfPossible,
   _since,
 } from '@naturalcycles/js-lib'
-import type { RetryOptions } from 'ky-for-people'
 import ky from 'ky-for-people'
 import { topbar } from '../vendor/topbar/topbar'
 import type { GetKyOptions } from './getKy.model'
@@ -44,7 +43,7 @@ export function getKy(opt: GetKyOptions = {}): KyInstance {
           req.tryCount = (req.tryCount || 0) + 1
 
           if (opt.logStart) {
-            const { limit } = options.retry as RetryOptions
+            const { limit } = options.retry
             const shortUrl = getShortUrl(req.url, options.prefixUrl)
 
             console.log(
@@ -66,7 +65,7 @@ export function getKy(opt: GetKyOptions = {}): KyInstance {
           }
 
           if (opt.logFinished || !res.ok) {
-            const { limit } = options.retry as RetryOptions
+            const { limit } = options.retry
             const shortUrl = getShortUrl(req.url, options.prefixUrl)
 
             const firstToken = [
@@ -114,7 +113,7 @@ export function getKy(opt: GetKyOptions = {}): KyInstance {
                 if (
                   !options.retry ||
                   req.tryCount === options.retry ||
-                  req.tryCount === (options.retry as RetryOptions).limit
+                  req.tryCount === options.retry.limit
                 ) {
                   if (opt.alertOnError) {
                     const errMsg = [firstToken, _anyToErrorMessage(body, true)].join('\n')
@@ -149,7 +148,7 @@ function getShortUrl(url: string, prefixUrl?: string | URL): string {
   let shortUrl = url.split('?')[0]!
 
   if (prefix && shortUrl.startsWith(prefix)) {
-    shortUrl = shortUrl.substr(prefix.length)
+    shortUrl = shortUrl.slice(prefix.length)
   }
 
   return shortUrl

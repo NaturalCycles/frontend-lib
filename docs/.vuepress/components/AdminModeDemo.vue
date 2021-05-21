@@ -11,6 +11,6 @@ const adminService = new AdminService({
 export default {
   mounted() {
     adminService.startListening()
-  }
+  },
 }
 </script>

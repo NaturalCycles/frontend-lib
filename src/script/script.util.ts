@@ -1,4 +1,7 @@
+/* eslint-disable unicorn/prefer-add-event-listener */
+
 export async function loadScript(src: string, async = true): Promise<void> {
+  // eslint-disable-next-line @typescript-eslint/return-await
   return new Promise<void>((resolve, reject) => {
     const s = document.createElement('script')
     s.src = src
@@ -7,6 +10,6 @@ export async function loadScript(src: string, async = true): Promise<void> {
       reject(error || new Error(`loadScript failed: ${src}`))
     }
     if (async) s.async = true
-    document.head!.appendChild(s)
+    document.head.append(s)
   })
 }

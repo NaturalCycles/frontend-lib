@@ -105,7 +105,7 @@ export default {
           this.images = [...images]
         },
       })
-    }
+    },
   },
 }
 </script>

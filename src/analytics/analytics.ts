@@ -15,7 +15,7 @@ export async function loadGTag(gtagId: string, enabled = true): Promise<void> {
 
   window.dataLayer ||= []
   window.gtag = function () {
-    window.dataLayer.push(arguments)
+    window.dataLayer.push(arguments) // eslint-disable-line prefer-rest-params
   }
   window.gtag('js', new Date())
   window.gtag('config', gtagId)
@@ -25,6 +25,8 @@ export async function loadGTag(gtagId: string, enabled = true): Promise<void> {
   await loadScript(`https://www.googletagmanager.com/gtag/js?id=${gtagId}`)
 }
 
+/* eslint-disable prefer-rest-params */
+
 export function loadHotjar(hjid: number): void {
   if (isNode()) return
 
@@ -33,9 +35,9 @@ export function loadHotjar(hjid: number): void {
   ;(function(h: any,o,t,j,a?: any,r?: any){
     h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
     h._hjSettings={hjid,hjsv:6};
-    a=o.getElementsByTagName('head')[0];
+    a=o.querySelectorAll('head')[0];
     r=o.createElement('script');r.async=1;
     r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-    a.appendChild(r);
+    a.append(r);
   })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=')
 }

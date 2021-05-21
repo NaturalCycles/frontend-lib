@@ -50,7 +50,7 @@ export default {
 
     tr2() {
       return translationService.translate('key2')
-    }
+    },
   },
 
   async mounted() {
@@ -58,7 +58,7 @@ export default {
     await translationService.loadLocale(['en', 'ru'])
 
     this.loading = false
-  }
+  },
 }
 </script>
 

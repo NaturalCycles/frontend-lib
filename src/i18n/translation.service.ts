@@ -94,7 +94,7 @@ export class TranslationService {
   /**
    * Does NOT invoke `missingTranslationHandler`, returns `undefined` instead.
    */
-  translateIfExists(key: string, params?: StringMap): string | undefined {
+  translateIfExists(key: string, _params?: StringMap): string | undefined {
     // todo: support params
     return this.locales[this.currentLocale]?.[key] || this.locales[this.cfg.defaultLocale]?.[key]
   }

@@ -24,24 +24,24 @@ export default {
   },
 
   methods: {
-    async loadGood () {
+    async loadGood() {
       await this.load(`https://unpkg.com/jquery@3.6.0/dist/jquery.js`)
       this.loading = false
     },
 
-    async loadBad () {
+    async loadBad() {
       await this.load(`https://unpkg.com/jqueryNON_EXISTING`)
       this.loading = false
     },
 
     // @ErrorHandler() // doesn't work without Class/method
-    async load (src: string) {
+    async load(src: string) {
       this.loading = true
       await loadScript(src)
         .then(() => alert('loaded ok'))
         .catch(err => {
-        alert(_anyToErrorMessage(err))
-      })
+          alert(_anyToErrorMessage(err))
+        })
     },
   },
 }

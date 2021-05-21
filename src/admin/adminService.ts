@@ -48,6 +48,7 @@ export interface AdminModeCfg {
 
   /**
    * The key for LocalStorage persistence.
+   *
    * @default '__adminMode__'
    */
   localStorageKey?: string
@@ -125,9 +126,11 @@ export class AdminService {
 
     if (this.cfg.persistToLocalStorage) {
       const { localStorageKey } = this.cfg
-      this.adminMode
-        ? localStorage.setItem(localStorageKey, '1')
-        : localStorage.removeItem(localStorageKey)
+      if (this.adminMode) {
+        localStorage.setItem(localStorageKey, '1')
+      } else {
+        localStorage.removeItem(localStorageKey)
+      }
     }
 
     this.cfg.onChange(this.adminMode)
@@ -143,8 +146,8 @@ export class AdminService {
     el.id = RED_DOT_ID
     el.style.cssText =
       'position:fixed;width:24px;height:24px;margin-top:-12px;background-color:red;opacity:0.5;top:50%;left:0;z-index:9999999;cursor:pointer;border-radius:0 3px 3px 0'
-    el.onclick = () => this.cfg.onRedDotClick()
-    document.body.appendChild(el)
+    el.addEventListener('click', () => this.cfg.onRedDotClick())
+    document.body.append(el)
     return el
   }
 }

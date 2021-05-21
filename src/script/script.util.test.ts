@@ -10,7 +10,7 @@ test('loadScript', async () => {
     head: {},
   }
   document.createElement = jest.fn(() => el)
-  ;(document.head!.appendChild as any) = () => {}
+  ;(document.head.append as any) = () => {}
 
   let promise = loadScript('http://some.script')
   el.onload()

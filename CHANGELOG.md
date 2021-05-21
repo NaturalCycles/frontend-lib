@@ -1,3 +1,10 @@
+## [2.17.2](https://github.com/NaturalCycles/frontend-lib/compare/v2.17.1...v2.17.2) (2021-05-21)
+
+
+### Bug Fixes
+
+* adopt eslint ([7a2e7db](https://github.com/NaturalCycles/frontend-lib/commit/7a2e7db73b53fa53f7ed04e59295dcd68f8da773))
+
 ## [2.17.1](https://github.com/NaturalCycles/frontend-lib/compare/v2.17.0...v2.17.1) (2021-04-06)
 
 

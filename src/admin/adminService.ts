@@ -1,5 +1,4 @@
-import { _anyToErrorMessage, _Memo } from '@naturalcycles/js-lib'
-import type { Promisable } from 'type-fest'
+import { Promisable, _anyToErrorMessage, _Memo } from '@naturalcycles/js-lib'
 import { isNode } from '../env'
 
 export interface AdminModeCfg {

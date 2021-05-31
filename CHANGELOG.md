@@ -1,3 +1,10 @@
+## [2.17.3](https://github.com/NaturalCycles/frontend-lib/compare/v2.17.2...v2.17.3) (2021-05-31)
+
+
+### Bug Fixes
+
+* deps (get rid of type-fest in favour of js-lib types) ([4e34dfc](https://github.com/NaturalCycles/frontend-lib/commit/4e34dfc2d97c7642769ff94dd3d47c54f7da02a2))
+
 ## [2.17.2](https://github.com/NaturalCycles/frontend-lib/compare/v2.17.1...v2.17.2) (2021-05-21)
 
 

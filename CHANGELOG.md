@@ -1,3 +1,10 @@
+# [2.18.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.17.3...v2.18.0) (2021-07-02)
+
+
+### Features
+
+* **analytics:** loadGTM ([d72a445](https://github.com/NaturalCycles/frontend-lib/commit/d72a4458ccae22f64040e85400865179d89f7841))
+
 ## [2.17.3](https://github.com/NaturalCycles/frontend-lib/compare/v2.17.2...v2.17.3) (2021-05-31)
 
 

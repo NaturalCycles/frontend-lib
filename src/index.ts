@@ -7,7 +7,7 @@ import type {
 } from 'ky-for-people'
 import ky from 'ky-for-people'
 import { AdminModeCfg, AdminService } from './admin/adminService'
-import { loadGTag, loadHotjar } from './analytics/analytics'
+import { loadGTag, loadGTM, loadHotjar } from './analytics/analytics'
 import { isBrowser, isNode } from './env'
 import { getKy, KyInstance } from './http/getKy'
 import { GetKyOptions } from './http/getKy.model'
@@ -51,6 +51,7 @@ export {
   loadScript,
   ky,
   loadGTag,
+  loadGTM,
   loadHotjar,
   TranslationService,
   FetchTranslationLoader,

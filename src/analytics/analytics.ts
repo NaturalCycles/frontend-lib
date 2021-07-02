@@ -25,6 +25,21 @@ export async function loadGTag(gtagId: string, enabled = true): Promise<void> {
   await loadScript(`https://www.googletagmanager.com/gtag/js?id=${gtagId}`)
 }
 
+export async function loadGTM(gtmId: string, enabled = true): Promise<void> {
+  if (isNode()) return
+
+  window.dataLayer ||= []
+  window.dataLayer.push({
+    'gtm.start': Date.now(),
+    event: 'gtm.js',
+  })
+
+  if (!enabled) return
+
+  await loadScript(`https://www.googletagmanager.com/gtm.js?id=${gtmId}`)
+  console.log('gtm loaded')
+}
+
 /* eslint-disable prefer-rest-params */
 
 export function loadHotjar(hjid: number): void {
@@ -32,12 +47,18 @@ export function loadHotjar(hjid: number): void {
 
   // tslint:disable
   // prettier-ignore
-  ;(function(h: any,o,t,j,a?: any,r?: any){
-    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-    h._hjSettings={hjid,hjsv:6};
-    a=o.querySelectorAll('head')[0];
-    r=o.createElement('script');r.async=1;
-    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-    a.append(r);
-  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=')
+  ;
+  ;(function (h: any, o, t, j, a?: any, r?: any) {
+    h.hj =
+      h.hj ||
+      function () {
+        ;(h.hj.q = h.hj.q || []).push(arguments)
+      }
+    h._hjSettings = { hjid, hjsv: 6 }
+    a = o.querySelectorAll('head')[0]
+    r = o.createElement('script')
+    r.async = 1
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv
+    a.append(r)
+  })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=')
 }

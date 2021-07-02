@@ -1,6 +1,7 @@
 {
   "name": "@naturalcycles/frontend-lib",
   "scripts": {
+    "prepare": "husky install",
     "build-prod": "build-prod-esm-cjs",
     "smoke-test": "node src/test/ssr.js",
     "docs-serve": "vuepress dev docs",
@@ -12,7 +13,7 @@
     "tslib": "^2.0.0"
   },
   "devDependencies": {
-    "@naturalcycles/dev-lib": "^11.0.5",
+    "@naturalcycles/dev-lib": "^12.0.0",
     "@types/node": "^15.0.1",
     "jest": "^27.0.3",
     "prettier": "^2.1.2",

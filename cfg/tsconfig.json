@@ -23,6 +23,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUncheckedIndexedAccess": true,
     "noPropertyAccessFromIndexSignature": true,
+    "noImplicitOverride": true,
 
     // Enabled should be faster, but will catch less errors
     // "skipLibCheck": true,

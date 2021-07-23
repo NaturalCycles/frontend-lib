@@ -1,3 +1,10 @@
+# [2.19.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.18.0...v2.19.0) (2021-07-23)
+
+
+### Features
+
+* noImplicitOverride=true in cfg/tsconfig.json ([4e96f1a](https://github.com/NaturalCycles/frontend-lib/commit/4e96f1a5cedf2c227889ed32153a67f57f622862))
+
 # [2.18.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.17.3...v2.18.0) (2021-07-02)
 
 

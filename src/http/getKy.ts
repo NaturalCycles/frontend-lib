@@ -109,19 +109,22 @@ export function getKy(opt: GetKyOptions = {}): KyInstance {
                 )
                 const httpError = _errorObjectToHttpError(errObj)
 
-                // alert only if it's the last retry
-                if (
-                  !options.retry ||
-                  req.tryCount === options.retry ||
-                  req.tryCount === options.retry.limit
-                ) {
-                  if (opt.alertOnError) {
-                    const errMsg = [firstToken, _anyToErrorMessage(body, true)].join('\n')
-                    alert(errMsg)
-                  }
+                // const isRetriableMethod = ky._options.retry.methods.includes(ky.request.method.toLowerCase());
 
-                  opt.onError?.(httpError)
+                // alert only if it's the last retry
+                // Kirill: it's hard to detect if the request is retryable or not
+                // So, until we find a way, we'll alert on EVERY try
+                // if (
+                //   !options.retry ||
+                //   req.tryCount === options.retry ||
+                //   req.tryCount === options.retry.limit
+                // ) {
+                if (opt.alertOnError) {
+                  const errMsg = [firstToken, _anyToErrorMessage(body, true)].join('\n')
+                  alert(errMsg)
                 }
+
+                opt.onError?.(httpError)
 
                 console.log(...tokens)
 

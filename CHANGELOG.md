@@ -1,3 +1,10 @@
+## [2.19.1](https://github.com/NaturalCycles/frontend-lib/compare/v2.19.0...v2.19.1) (2021-08-03)
+
+
+### Bug Fixes
+
+* ky.alertOnError on non-retriable methods ([775aa50](https://github.com/NaturalCycles/frontend-lib/commit/775aa50ba8143aeb7646b4de2e8f48707ac5b726))
+
 # [2.19.0](https://github.com/NaturalCycles/frontend-lib/compare/v2.18.0...v2.19.0) (2021-07-23)
 
 

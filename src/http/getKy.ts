@@ -1,12 +1,10 @@
 import {
-  ErrorObject,
-  HttpErrorData,
-  _anyToErrorMessage,
+  HttpError,
   _anyToErrorObject,
-  _errorObjectToHttpError,
   _filterNullishValues,
   _jsonParseIfPossible,
   _since,
+  _stringifyAny,
 } from '@naturalcycles/js-lib'
 import ky from 'ky-for-people'
 import { topbar } from '../vendor/topbar/topbar'
@@ -86,17 +84,19 @@ export function getKy(opt: GetKyOptions = {}): KyInstance {
               const body = _jsonParseIfPossible(await res.text())
 
               if (!res.ok) {
-                const errMsgWithBody = _anyToErrorMessage(body, true)
+                const errMsgWithBody = _stringifyAny(body)
                 tokens.push(errMsgWithBody)
 
                 // console.log(options, req, res)
 
-                const errObj = _anyToErrorObject(body) as ErrorObject<HttpErrorData>
+                const errObj = _anyToErrorObject(body)
                 const originalMessage = errObj.message
                 errObj.message = [firstToken, errObj.message].join('\n')
-                Object.assign(
-                  errObj.data,
+
+                const httpError = new HttpError(
+                  errObj.message,
                   _filterNullishValues({
+                    ...errObj.data,
                     originalMessage,
                     httpStatusCode: res.status,
                     // These properties are provided to be used in e.g custom Sentry error grouping
@@ -107,7 +107,6 @@ export function getKy(opt: GetKyOptions = {}): KyInstance {
                     // tryCount: req.tryCount,
                   }),
                 )
-                const httpError = _errorObjectToHttpError(errObj)
 
                 // const isRetriableMethod = ky._options.retry.methods.includes(ky.request.method.toLowerCase());
 
@@ -120,7 +119,8 @@ export function getKy(opt: GetKyOptions = {}): KyInstance {
                 //   req.tryCount === options.retry.limit
                 // ) {
                 if (opt.alertOnError) {
-                  const errMsg = [firstToken, _anyToErrorMessage(body, true)].join('\n')
+                  // Here we're NOT including ErrorData
+                  const errMsg = [firstToken, _stringifyAny(body)].join('\n')
                   alert(errMsg)
                 }
 

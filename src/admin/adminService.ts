@@ -1,4 +1,4 @@
-import { Promisable, _anyToErrorMessage, _Memo } from '@naturalcycles/js-lib'
+import { Promisable, _Memo, _stringifyAny } from '@naturalcycles/js-lib'
 import { isNode } from '../env'
 
 export interface AdminModeCfg {
@@ -115,7 +115,7 @@ export class AdminService {
     } catch (err) {
       console.error(err)
       // ok to show alert to Admins, it's not user-facing
-      alert(_anyToErrorMessage(err, true))
+      alert(_stringifyAny(err, { includeErrorData: true }))
       return // treat as "not allowed"
     }
 

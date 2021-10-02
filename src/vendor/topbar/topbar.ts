@@ -1,6 +1,5 @@
 // Modified version of topbar:
 // http://buunguyen.github.io/topbar
-/* tslint:disable */
 /* eslint-disable */
 
 export interface TopBarOptions {

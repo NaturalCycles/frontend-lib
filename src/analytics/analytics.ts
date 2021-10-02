@@ -45,7 +45,6 @@ export async function loadGTM(gtmId: string, enabled = true): Promise<void> {
 export function loadHotjar(hjid: number): void {
   if (isNode()) return
 
-  // tslint:disable
   // prettier-ignore
   ;
   ;(function (h: any, o, t, j, a?: any, r?: any) {

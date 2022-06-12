@@ -20,7 +20,7 @@ Powered by [vuepress](https://github.com/vuejs/vuepress).
 
 # Packaging
 
-- `main: dist/index.js`: commonjs, es2020
-- `module: dist-esm/index.js`: ESM, es2020
+- `main: dist/index.js`: commonjs, es2017
+- `module: dist-esm/index.js`: ESM, es2017
 - `types: dist/index.d.ts`: typescript types
 - `/src` folder with source `*.ts` files included

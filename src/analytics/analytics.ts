@@ -40,11 +40,10 @@ export async function loadGTM(gtmId: string, enabled = true): Promise<void> {
   console.log('gtm loaded')
 }
 
-/* eslint-disable prefer-rest-params */
-
 export function loadHotjar(hjid: number): void {
   if (isNode()) return
 
+  /* eslint-disable */
   // prettier-ignore
   ;
   ;(function (h: any, o, t, j, a?: any, r?: any) {
@@ -60,4 +59,5 @@ export function loadHotjar(hjid: number): void {
     r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv
     a.append(r)
   })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=')
+  /* eslint-enable */
 }

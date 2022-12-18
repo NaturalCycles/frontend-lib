@@ -9,6 +9,7 @@ test('loadScript', async () => {
   ;(global as any).document = {
     head: {},
   }
+  // eslint-disable-next-line jest/prefer-spy-on
   document.createElement = jest.fn(() => el)
   ;(document.head.append as any) = () => {}
 

@@ -11,17 +11,17 @@ export interface AdminModeCfg {
    * @default
    * Detects Ctrl+Shift+L
    */
-  predicate?: (e: KeyboardEvent) => boolean
+  predicate?(e: KeyboardEvent): boolean
 
   /**
    * Called when RedDot is clicked. Implies that AdminMode is enabled.
    */
-  onRedDotClick?: () => any
+  onRedDotClick?(): any
 
   /**
    * Called when AdminMode was changed.
    */
-  onChange?: (adminMode: boolean) => any
+  onChange?(adminMode: boolean): any
 
   /**
    * Called BEFORE entering AdminMode.
@@ -29,7 +29,7 @@ export interface AdminModeCfg {
    * Return true to allow.
    * Function is awaited before proceeding.
    */
-  beforeEnter?: () => Promisable<boolean>
+  beforeEnter?(): Promisable<boolean>
 
   /**
    * Called BEFORE exiting AdminMode.
@@ -37,7 +37,7 @@ export interface AdminModeCfg {
    * Return true to allow.
    * Function is awaited before proceeding.
    */
-  beforeExit?: () => Promisable<boolean>
+  beforeExit?(): Promisable<boolean>
 
   /**
    * @default true

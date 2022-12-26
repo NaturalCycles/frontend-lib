@@ -1,9 +1,9 @@
-import { isNode, loadScript } from '..'
+import { isServerSide, loadScript } from '..'
 
 declare global {
   interface Window {
     dataLayer: any[]
-    gtag(...args: any[]): void
+    gtag: (...args: any[]) => void
   }
 }
 
@@ -11,7 +11,7 @@ declare global {
  * Pass enabled = false to only init window.gtag, but not load actual gtag script (e.g in dev mode).
  */
 export async function loadGTag(gtagId: string, enabled = true): Promise<void> {
-  if (isNode()) return
+  if (isServerSide()) return
 
   window.dataLayer ||= []
   window.gtag = function () {
@@ -26,7 +26,7 @@ export async function loadGTag(gtagId: string, enabled = true): Promise<void> {
 }
 
 export async function loadGTM(gtmId: string, enabled = true): Promise<void> {
-  if (isNode()) return
+  if (isServerSide()) return
 
   window.dataLayer ||= []
   window.dataLayer.push({
@@ -41,7 +41,7 @@ export async function loadGTM(gtmId: string, enabled = true): Promise<void> {
 }
 
 export function loadHotjar(hjid: number): void {
-  if (isNode()) return
+  if (isServerSide()) return
 
   /* eslint-disable */
   // prettier-ignore

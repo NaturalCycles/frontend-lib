@@ -37,7 +37,7 @@ export interface GetKyOptions extends Options {
    * Receive a callback onError.
    * Providing a callback doesn't cancel any other options, such as throwOnError or alertOnError.
    */
-  onError?(err: HttpError): any
+  onError?: (err: HttpError) => any
 
   /**
    * @default false

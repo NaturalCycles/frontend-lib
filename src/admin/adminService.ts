@@ -1,5 +1,5 @@
 import { Promisable, _Memo, _stringifyAny } from '@naturalcycles/js-lib'
-import { isNode } from '../env'
+import { isServerSide } from '../env'
 
 export interface AdminModeCfg {
   /**
@@ -11,17 +11,17 @@ export interface AdminModeCfg {
    * @default
    * Detects Ctrl+Shift+L
    */
-  predicate?(e: KeyboardEvent): boolean
+  predicate?: (e: KeyboardEvent) => boolean
 
   /**
    * Called when RedDot is clicked. Implies that AdminMode is enabled.
    */
-  onRedDotClick?(): any
+  onRedDotClick?: () => any
 
   /**
    * Called when AdminMode was changed.
    */
-  onChange?(adminMode: boolean): any
+  onChange?: (adminMode: boolean) => any
 
   /**
    * Called BEFORE entering AdminMode.
@@ -29,7 +29,7 @@ export interface AdminModeCfg {
    * Return true to allow.
    * Function is awaited before proceeding.
    */
-  beforeEnter?(): Promisable<boolean>
+  beforeEnter?: () => Promisable<boolean>
 
   /**
    * Called BEFORE exiting AdminMode.
@@ -37,7 +37,7 @@ export interface AdminModeCfg {
    * Return true to allow.
    * Function is awaited before proceeding.
    */
-  beforeExit?(): Promisable<boolean>
+  beforeExit?: () => Promisable<boolean>
 
   /**
    * @default true
@@ -88,7 +88,7 @@ export class AdminService {
    * Start listening to keyboard events to toggle AdminMode when detected.
    */
   startListening(): void {
-    if (this.listening || isNode()) return
+    if (this.listening || isServerSide()) return
 
     this.adminMode = !!localStorage.getItem(this.cfg.localStorageKey)
 
@@ -100,7 +100,7 @@ export class AdminService {
   }
 
   stopListening(): void {
-    if (isNode()) return
+    if (isServerSide()) return
     document.removeEventListener('keydown', this.keydownListener)
     this.listening = false
   }

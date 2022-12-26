@@ -13,7 +13,7 @@ export interface FitImagesCfg {
    * Will be called on each layout change.
    * Should be listened to to update the width/height of the images in your DOM.
    */
-  onChange(images: FitImage[]): any
+  onChange: (images: FitImage[]) => any
 
   /**
    * Max image height in pixels.

@@ -29,7 +29,7 @@ export interface TranslationServiceCfgComplete extends TranslationServiceCfg {
 }
 
 export interface TranslationLoader {
-  load(locale: string): Promise<StringMap>
+  load: (locale: string) => Promise<StringMap>
 }
 
 export class TranslationService {

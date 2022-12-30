@@ -23,6 +23,9 @@ declare global {
   }
 }
 
+/**
+ * @deprecated Use getFetcher from js-lib instead
+ */
 export function getKy(opt: GetKyOptions = {}): KyInstance {
   return ky.create({
     timeout: 60_000, // default to 60 seconds, not 10

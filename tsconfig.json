@@ -3,12 +3,8 @@
   "compilerOptions": {
     "outDir": "dist",
     // "allowJs": true,
-    "target": "es2017", // es2017+ browsers
-    "lib": ["esnext", "dom", "dom.iterable"]
+    "target": "es2017" // es2017+ browsers
   },
-  "include": [
-    "src"
-    // "node_modules/ky/index.js",
-  ],
+  "include": ["src"],
   "exclude": ["**/__exclude"]
 }

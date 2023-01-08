@@ -15,4 +15,8 @@ translationService.translate('key1')
 // value 1 en
 ```
 
+<script setup>
+import TranslationDemo from './components/TranslationDemo.vue'
+</script>
+
 <TranslationDemo/>

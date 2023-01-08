@@ -21,4 +21,8 @@ admin.startListening()
 
 Try pressing `Ctrl+Shift+L` on the keyboard to see the RedDot™ in action.
 
+<script setup>
+import AdminModeDemo from './components/AdminModeDemo.vue'
+</script>
+
 <AdminModeDemo/>

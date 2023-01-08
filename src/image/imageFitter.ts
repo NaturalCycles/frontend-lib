@@ -2,7 +2,7 @@ export interface FitImagesCfg {
   /**
    * Container of the images
    */
-  container: HTMLElement
+  containerElement: HTMLElement
 
   /**
    * Array of image metadatas (most notably: aspectRatio).
@@ -48,8 +48,6 @@ export interface FitImage {
   fitHeight?: number
 }
 
-export type StopFunction = () => void
-
 /**
  * Calculates the width/height of the images to fit in the layout.
  *
@@ -57,30 +55,38 @@ export type StopFunction = () => void
  *
  * @experimental
  */
-export function fitImages(cfg: FitImagesCfg): StopFunction {
-  const { container, maxHeight = 300, margin = 8, images } = cfg
-
-  let containerWidth = -1
-
-  const observer = new ResizeObserver(update)
-  observer.observe(container)
-
-  return () => {
-    observer.disconnect()
+export class ImageFitter {
+  constructor(cfg: FitImagesCfg) {
+    this.cfg = {
+      maxHeight: 300,
+      margin: 8,
+      ...cfg,
+    }
+    this.resizeObserver = new ResizeObserver(entries => this.update(entries))
+    this.resizeObserver.observe(cfg.containerElement)
   }
 
-  function update(entries: ResizeObserverEntry[]): void {
+  cfg!: Required<FitImagesCfg>
+  resizeObserver: ResizeObserver
+  containerWidth = -1
+
+  stop(): void {
+    this.resizeObserver.disconnect()
+  }
+
+  private update(entries: ResizeObserverEntry[]): void {
     const width = Math.floor(entries[0]!.contentRect.width)
-    if (width === containerWidth) return // we're only interested in width changes
-    containerWidth = width
+    if (width === this.containerWidth) return // we're only interested in width changes
+    this.containerWidth = width
 
     console.log(`resize ${width}`)
-    doLayout(images)
-    cfg.onChange(images)
+    this.doLayout(this.cfg.images)
+    this.cfg.onChange(this.cfg.images)
   }
 
-  function doLayout(imgs: readonly FitImage[]): void {
+  private doLayout(imgs: readonly FitImage[]): void {
     if (imgs.length === 0) return // nothing to do
+    const { maxHeight } = this.cfg
 
     let imgNodes = imgs.slice(0)
 
@@ -90,22 +96,22 @@ export function fitImages(cfg: FitImagesCfg): StopFunction {
 
       for (let i = 1; i <= imgNodes.length; i++) {
         slice = imgNodes.slice(0, i)
-        h = _getHeigth(slice)
+        h = this.getHeigth(slice)
 
         if (h < maxHeight) {
-          _setHeight(slice, h)
+          this.setHeight(slice, h)
           imgNodes = imgNodes.slice(i)
           continue w
         }
       }
 
-      _setHeight(slice!, Math.min(maxHeight, h!))
+      this.setHeight(slice!, Math.min(maxHeight, h!))
       break
     }
   }
 
-  function _getHeigth(images: readonly FitImage[]): number {
-    const width = containerWidth - images.length * margin
+  private getHeigth(images: readonly FitImage[]): number {
+    const width = this.containerWidth - images.length * this.cfg.margin
     let r = 0
     images.forEach(img => (r += img.aspectRatio))
 
@@ -113,7 +119,7 @@ export function fitImages(cfg: FitImagesCfg): StopFunction {
   }
 
   // mutates/sets images' fitWidth, fitHeight properties
-  function _setHeight(images: readonly FitImage[], height: number): void {
+  private setHeight(images: readonly FitImage[], height: number): void {
     images.forEach(img => {
       img.fitWidth = Math.floor(height * img.aspectRatio)
       img.fitHeight = Math.floor(height)

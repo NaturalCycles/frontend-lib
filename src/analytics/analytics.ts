@@ -1,4 +1,5 @@
-import { isServerSide, loadScript } from '..'
+import { isServerSide } from '@naturalcycles/js-lib'
+import { loadScript } from '..'
 
 declare global {
   interface Window {

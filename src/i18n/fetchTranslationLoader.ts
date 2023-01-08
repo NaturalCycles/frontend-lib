@@ -1,22 +1,15 @@
-import { StringMap } from '@naturalcycles/js-lib'
-import { getKy, GetKyOptions, KyInstance } from '..'
+import { Fetcher, StringMap } from '@naturalcycles/js-lib'
 import { TranslationLoader } from './translation.service'
 
 /**
- * Use `prefixUrl` to prefix your language files.
+ * Use `baseUrl` to prefix your language files.
  * Example URL structure:
- * ${prefixUrl}/${locale}.json
+ * ${baseUrl}/${locale}.json
  */
-export interface FetchTranslationLoaderCfg extends GetKyOptions {}
-
 export class FetchTranslationLoader implements TranslationLoader {
-  constructor(public cfg: FetchTranslationLoaderCfg = {}) {
-    this.ky = getKy(cfg)
-  }
-
-  ky: KyInstance
+  constructor(public fetcher: Fetcher) {}
 
   async load(locale: string): Promise<StringMap> {
-    return await this.ky.get(`${locale}.json`).json()
+    return await this.fetcher.get(`${locale}.json`)
   }
 }

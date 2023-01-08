@@ -8,12 +8,11 @@ import type {
 import ky from 'ky-for-people'
 export * from './admin/adminService'
 export * from './analytics/analytics'
-export * from './env'
 export * from './http/getKy'
 export * from './http/getKy.model'
 export * from './i18n/fetchTranslationLoader'
 export * from './i18n/translation.service'
-export * from './image/fitImages'
+export * from './image/imageFitter'
 export * from './script/script.util'
 export * from './vendor/topbar/topbar'
 

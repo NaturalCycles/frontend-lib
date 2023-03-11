@@ -114,7 +114,7 @@ export class AdminService {
     } catch (err) {
       console.error(err)
       // ok to show alert to Admins, it's not user-facing
-      alert(_stringifyAny(err, { includeErrorData: true }))
+      alert(_stringifyAny(err))
       return // treat as "not allowed"
     }
 

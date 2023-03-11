@@ -1,11 +1,12 @@
 import {
-  HttpError,
   _anyToErrorObject,
   _filterNullishValues,
   _jsonParseIfPossible,
   _since,
   _stringifyAny,
+  HttpRequestError,
 } from '@naturalcycles/js-lib'
+import { HttpRequestErrorData } from '@naturalcycles/js-lib/src/error/error.model'
 import ky from 'ky-for-people'
 import { topbar } from '../vendor/topbar/topbar'
 import type { GetKyOptions } from './getKy.model'
@@ -96,19 +97,22 @@ export function getKy(opt: GetKyOptions = {}): KyInstance {
                 const originalMessage = errObj.message
                 errObj.message = [firstToken, errObj.message].join('\n')
 
-                const httpError = new HttpError(
+                const httpError = new HttpRequestError(
                   errObj.message,
                   _filterNullishValues({
                     ...errObj.data,
                     originalMessage,
-                    httpStatusCode: res.status,
+                    requestMethod: req.method as any,
+                    requestSignature: '',
+                    responseStatusCode: res.status,
                     // These properties are provided to be used in e.g custom Sentry error grouping
                     // Actually, disabled now, to avoid unnecessary error printing when both msg and data are printed
                     // Enabled, cause `data` is not printed by default when error is HttpError
                     // method: req.method,
-                    url: req.url,
+                    requestUrl: req.url,
+                    requestDuration: 0,
                     // tryCount: req.tryCount,
-                  }),
+                  } satisfies HttpRequestErrorData),
                 )
 
                 // const isRetriableMethod = ky._options.retry.methods.includes(ky.request.method.toLowerCase());

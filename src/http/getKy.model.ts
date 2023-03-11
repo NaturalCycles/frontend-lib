@@ -1,4 +1,4 @@
-import type { HttpError } from '@naturalcycles/js-lib'
+import { AppError } from '@naturalcycles/js-lib'
 import type { Options } from 'ky-for-people'
 
 /**
@@ -37,7 +37,7 @@ export interface GetKyOptions extends Options {
    * Receive a callback onError.
    * Providing a callback doesn't cancel any other options, such as throwOnError or alertOnError.
    */
-  onError?: (err: HttpError) => any
+  onError?: (err: AppError) => any
 
   /**
    * @default false

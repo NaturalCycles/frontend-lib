@@ -27,7 +27,6 @@ yarn add @naturalcycles/frontend-lib
 
 ## Features
 
-- [getKy](ky.md)
 - [loadScript](loadScript.md)
 - [TranslationService](translation.md) <Badge text="experimental" type="warning"/>
 - [Analytics](analytics.md)

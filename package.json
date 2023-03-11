@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@naturalcycles/js-lib": "^14.25.1",
-    "ky-for-people": "^1.0.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
@@ -43,7 +42,7 @@
     "url": "https://github.com/NaturalCycles/frontend-lib"
   },
   "engines": {
-    "node": ">=16.10.0"
+    "node": ">=18.12.0"
   },
   "version": "2.19.2",
   "description": "Standard library for Frontend applications",

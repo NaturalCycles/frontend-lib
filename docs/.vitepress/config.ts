@@ -25,7 +25,6 @@ export default defineConfig({
         text: 'Features',
         collapsible: true,
         items: [
-          { text: 'getKy', link: '/ky' },
           { text: 'loadScript', link: '/loadScript' },
           { text: 'TranslationService', link: '/translation' },
           { text: 'Analytics', link: '/analytics' },

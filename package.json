@@ -3,7 +3,6 @@
   "scripts": {
     "prepare": "husky install",
     "build-prod": "build-prod-esm-cjs",
-    "smoke-test": "node src/test/ssr.js",
     "docs-dev": "vitepress dev docs --open",
     "docs-build": "vitepress build docs",
     "docs-preview": "vitepress preview docs"

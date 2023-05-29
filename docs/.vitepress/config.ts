@@ -17,13 +17,13 @@ export default defineConfig({
     ],
     sidebar: [
       {
-        // text: 'Intro',
-        collapsible: true,
+        text: 'Intro',
+        collapsed: false,
         items: [{ text: 'Intro', link: '/' }],
       },
       {
         text: 'Features',
-        collapsible: true,
+        collapsed: false,
         items: [
           { text: 'loadScript', link: '/loadScript' },
           { text: 'TranslationService', link: '/translation' },
@@ -31,7 +31,7 @@ export default defineConfig({
           { text: 'AdminService', link: '/adminService' },
           { text: 'Image', link: '/image' },
         ],
-      },
+      }
     ],
   },
 })

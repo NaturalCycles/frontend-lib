@@ -4,7 +4,7 @@
     "prepare": "husky install",
     "build-prod": "build-prod-esm-cjs",
     "smoke-test": "node src/test/ssr.js",
-    "docs-serve": "vitepress dev docs --open",
+    "docs-dev": "vitepress dev docs --open",
     "docs-build": "vitepress build docs",
     "docs-preview": "vitepress preview docs"
   },
@@ -14,10 +14,10 @@
   },
   "devDependencies": {
     "@naturalcycles/dev-lib": "^13.0.0",
-    "@types/node": "^18.11.17",
+    "@types/node": "^20.2.5",
     "jest": "^29.3.1",
     "prettier": "^2.1.2",
-    "vitepress": "^1.0.0-alpha.52",
+    "vitepress": "^1.0.0-beta.1",
     "vue": "^3.2.45"
   },
   "files": [

@@ -11,3 +11,4 @@ onMounted(() => {
   adminService.startListening()
 })
 </script>
+<template></template>

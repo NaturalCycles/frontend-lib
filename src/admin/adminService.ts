@@ -53,7 +53,7 @@ export interface AdminModeCfg {
 }
 
 const RED_DOT_ID = '__red-dot__'
-const NOOP = () => {}
+const NOOP = (): void => {}
 
 /**
  * @experimental

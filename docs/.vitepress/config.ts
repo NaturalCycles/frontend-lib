@@ -31,7 +31,7 @@ export default defineConfig({
           { text: 'AdminService', link: '/adminService' },
           { text: 'Image', link: '/image' },
         ],
-      }
+      },
     ],
   },
 })

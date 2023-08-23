@@ -11,10 +11,22 @@
     "module": "esnext",
     "moduleResolution": "node",
     "moduleDetection": "force",
+    // specifying these explicitly for better IDE compatibility (but they're on by default with module=nodenext)
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    // Faster compilation in general
+    // Support for external compilers (e.g esbuild)
+    // Speedup in Jest by using "isolatedModules" in 'ts-jest' config
+    "isolatedModules": true,
 
     // Emit
     "sourceMap": false,
     "declaration": false,
+    // Otherwise since es2022 it defaults to true
+    // and starts to produce different/unexpected behavior
+    // https://angular.schule/blog/2022-11-use-define-for-class-fields
+    "useDefineForClassFields": false,
+    "importHelpers": true,
 
     // Strictness
     "strict": true,
@@ -28,11 +40,6 @@
 
     // Enabled should be faster, but will catch less errors
     // "skipLibCheck": true,
-
-    // Faster compilation in general
-    // Support for external compilers (e.g esbuild)
-    // Speedup in Jest by using "isolatedModules" in 'ts-jest' config
-    "isolatedModules": true,
 
     // Disabled because of https://github.com/Microsoft/TypeScript/issues/29172
     // Need to be specified in the project tsconfig
@@ -51,7 +58,6 @@
     "jsx": "preserve",
     "pretty": true,
     "newLine": "lf",
-    "importHelpers": true,
     "experimentalDecorators": true
     // "emitDecoratorMetadata": true // use if needed
   }

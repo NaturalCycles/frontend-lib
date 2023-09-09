@@ -17,11 +17,13 @@ async function loadBad() {
 
 async function load(src: string) {
   loading.value = true
-  await loadScript(src)
-    .then(() => alert('loaded ok'))
-    .catch(err => {
-      alert(_stringifyAny(err))
-    })
+
+  try {
+    await loadScript(src)
+    alert('loaded ok')
+  } catch (err) {
+    alert(_stringifyAny(err))
+  }
 }
 </script>
 

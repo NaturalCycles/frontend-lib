@@ -13,6 +13,14 @@ export interface AdminModeCfg {
   predicate?: (e: KeyboardEvent) => boolean
 
   /**
+   * Allows touch predicate:
+   * lower left corner, lower right corner, lower left corner, lower right corner, lower left corner
+   *
+   * @default false
+   */
+  allowTouchPredicate?: boolean
+
+  /**
    * Called when RedDot is clicked. Implies that AdminMode is enabled.
    */
   onRedDotClick?: () => any
@@ -67,6 +75,7 @@ export class AdminService {
   constructor(cfg?: AdminModeCfg) {
     this.cfg = {
       predicate: e => e.ctrlKey && e.key === 'L',
+      allowTouchPredicate: false,
       persistToLocalStorage: true,
       localStorageKey: '__adminMode__',
       onRedDotClick: NOOP,
@@ -84,7 +93,7 @@ export class AdminService {
   private listening = false
 
   /**
-   * Start listening to keyboard events to toggle AdminMode when detected.
+   * Start listening to keyboard events (and touch events if allowTouchPredicate === true) to toggle AdminMode when detected.
    */
   startListening(): void {
     if (this.listening || isServerSide()) return
@@ -95,6 +104,10 @@ export class AdminService {
 
     document.addEventListener('keydown', this.keydownListener.bind(this), { passive: true })
 
+    if (this.cfg.allowTouchPredicate) {
+      document.addEventListener('touchstart', this.touchListener.bind(this), { passive: true })
+    }
+
     this.listening = true
   }
 
@@ -104,10 +117,59 @@ export class AdminService {
     this.listening = false
   }
 
+  private sequenceIndex = 1
+  private rightLowerCorner: [xAxis: number, yAxis: number] = [
+    window.innerWidth - 40,
+    window.innerHeight - 40,
+  ]
+  private leftLowerCorner: [xAxis: number, yAxis: number] = [40, window.innerHeight - 40]
+
+  private async touchListener(e: TouchEvent): Promise<void> {
+    // console.log(e)
+    const clientX = e.touches[0]?.clientX
+    const clientY = e.touches[0]?.clientY
+
+    if (!clientX || !clientY) {
+      this.sequenceIndex = 1
+      return
+    }
+
+    const sequence: ((clientX: number, clientY: number) => boolean)[] = [
+      this.lowerLeftCorner,
+      this.lowerRightCorner,
+      this.lowerLeftCorner,
+      this.lowerRightCorner,
+      this.lowerLeftCorner,
+    ]
+
+    if (sequence[this.sequenceIndex]!(clientX, clientY)) {
+      this.sequenceIndex++
+    } else {
+      this.sequenceIndex = 1
+      return
+    }
+
+    if (this.sequenceIndex === sequence.length) {
+      this.sequenceIndex = 1
+      await this.predicateFulfilled()
+    }
+  }
+
+  private lowerRightCorner(clientX: number, clientY: number): boolean {
+    return clientX > this.rightLowerCorner[0] && clientY > this.rightLowerCorner[1]
+  }
+
+  private lowerLeftCorner(clientX: number, clientY: number): boolean {
+    return clientX < this.leftLowerCorner[0] && clientY > this.leftLowerCorner[1]
+  }
+
   private async keydownListener(e: KeyboardEvent): Promise<void> {
     // console.log(e)
     if (!this.cfg.predicate(e)) return
+    await this.predicateFulfilled()
+  }
 
+  private async predicateFulfilled(): Promise<void> {
     try {
       const allow = await this.cfg[this.adminMode ? 'beforeExit' : 'beforeEnter']()
       if (!allow) return // no change

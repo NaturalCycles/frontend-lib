@@ -92,6 +92,13 @@ export class AdminService {
 
   private listening = false
 
+  private touchSequenceIndex = 1
+  private rightLowerCorner: [xAxis: number, yAxis: number] = [
+    window.innerWidth - 40,
+    window.innerHeight - 40,
+  ]
+  private leftLowerCorner: [xAxis: number, yAxis: number] = [40, window.innerHeight - 40]
+
   /**
    * Start listening to keyboard and touch events to toggle AdminMode when detected.
    */
@@ -117,20 +124,13 @@ export class AdminService {
     this.listening = false
   }
 
-  private sequenceIndex = 1
-  private rightLowerCorner: [xAxis: number, yAxis: number] = [
-    window.innerWidth - 40,
-    window.innerHeight - 40,
-  ]
-  private leftLowerCorner: [xAxis: number, yAxis: number] = [40, window.innerHeight - 40]
-
   private async touchListener(e: TouchEvent): Promise<void> {
     // console.log(e)
     const clientX = e.touches[0]?.clientX
     const clientY = e.touches[0]?.clientY
 
     if (!clientX || !clientY) {
-      this.sequenceIndex = 1
+      this.touchSequenceIndex = 1
       return
     }
 
@@ -142,15 +142,15 @@ export class AdminService {
       this.lowerLeftCorner,
     ]
 
-    if (sequence[this.sequenceIndex]!(clientX, clientY)) {
-      this.sequenceIndex++
+    if (sequence[this.touchSequenceIndex]!(clientX, clientY)) {
+      this.touchSequenceIndex++
     } else {
-      this.sequenceIndex = 1
+      this.touchSequenceIndex = 1
       return
     }
 
-    if (this.sequenceIndex === sequence.length) {
-      this.sequenceIndex = 1
+    if (this.touchSequenceIndex === sequence.length) {
+      this.touchSequenceIndex = 1
       await this.checkAllowToggle()
     }
   }

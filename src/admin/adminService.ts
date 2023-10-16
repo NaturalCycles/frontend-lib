@@ -93,18 +93,6 @@ export class AdminService {
   private listening = false
 
   private touchSequenceIndex = 1
-  private rightLowerCorner: [xAxis: number, yAxis: number] = [
-    window.innerWidth - 40,
-    window.innerHeight - 40,
-  ]
-  private leftLowerCorner: [xAxis: number, yAxis: number] = [40, window.innerHeight - 40]
-  private touchSequence: ((clientX: number, clientY: number) => boolean)[] = [
-    this.lowerLeftCorner,
-    this.lowerRightCorner,
-    this.lowerLeftCorner,
-    this.lowerRightCorner,
-    this.lowerLeftCorner,
-  ]
 
   /**
    * Start listening to keyboard and touch events to toggle AdminMode when detected.
@@ -140,26 +128,38 @@ export class AdminService {
       this.touchSequenceIndex = 1
       return
     }
+    const touchSequence: ((clientX: number, clientY: number) => boolean)[] = [
+      this.lowerLeftCorner,
+      this.lowerRightCorner,
+      this.lowerLeftCorner,
+      this.lowerRightCorner,
+      this.lowerLeftCorner,
+    ]
 
-    if (this.touchSequence[this.touchSequenceIndex]!(clientX, clientY)) {
+    if (touchSequence[this.touchSequenceIndex]!(clientX, clientY)) {
       this.touchSequenceIndex++
     } else {
       this.touchSequenceIndex = 1
       return
     }
 
-    if (this.touchSequenceIndex === this.touchSequence.length) {
+    if (this.touchSequenceIndex === touchSequence.length) {
       this.touchSequenceIndex = 1
       await this.checkAllowToggle()
     }
   }
 
   private lowerRightCorner(clientX: number, clientY: number): boolean {
-    return clientX > this.rightLowerCorner[0] && clientY > this.rightLowerCorner[1]
+    const rightLowerCorner: [xAxis: number, yAxis: number] = [
+      window.innerWidth - 40,
+      window.innerHeight - 40,
+    ]
+    return clientX > rightLowerCorner[0] && clientY > rightLowerCorner[1]
   }
 
   private lowerLeftCorner(clientX: number, clientY: number): boolean {
-    return clientX < this.leftLowerCorner[0] && clientY > this.leftLowerCorner[1]
+    const leftLowerCorner: [xAxis: number, yAxis: number] = [40, window.innerHeight - 40]
+    return clientX < leftLowerCorner[0] && clientY > leftLowerCorner[1]
   }
 
   private async keydownListener(e: KeyboardEvent): Promise<void> {

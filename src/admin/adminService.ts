@@ -91,7 +91,7 @@ export class AdminService {
 
     this.adminMode = !!localStorage.getItem(this.cfg.localStorageKey)
 
-    if (this.adminMode) this.toggleRedDot()
+    if (this.adminMode) this.toggleRedDotVisibility()
 
     document.addEventListener('keydown', this.keydownListener.bind(this), { passive: true })
 
@@ -107,10 +107,10 @@ export class AdminService {
   private async keydownListener(e: KeyboardEvent): Promise<void> {
     // console.log(e)
     if (!this.cfg.predicate(e)) return
-    await this.checkToggleRedDot()
+    await this.toggleRedDot()
   }
 
-  async checkToggleRedDot(): Promise<void> {
+  async toggleRedDot(): Promise<void> {
     try {
       const allow = await this.cfg[this.adminMode ? 'beforeExit' : 'beforeEnter']()
       if (!allow) return // no change
@@ -123,7 +123,7 @@ export class AdminService {
 
     this.adminMode = !this.adminMode
 
-    this.toggleRedDot()
+    this.toggleRedDotVisibility()
 
     if (this.cfg.persistToLocalStorage) {
       const { localStorageKey } = this.cfg
@@ -137,7 +137,7 @@ export class AdminService {
     this.cfg.onChange(this.adminMode)
   }
 
-  private toggleRedDot(): void {
+  private toggleRedDotVisibility(): void {
     this.getRedDotElement().style.display = this.adminMode ? 'block' : 'none'
   }
 

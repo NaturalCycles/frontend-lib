@@ -13,12 +13,12 @@ export interface AdminModeCfg {
   predicate?: (e: KeyboardEvent) => boolean
 
   /**
-   * Allows touch predicate:
-   * lower left corner, lower right corner, lower left corner, lower right corner, lower left corner
+   * Enable touch sequence toggling
+   * (lower left corner, lower right corner, lower left corner, lower right corner, lower left corner)
    *
    * @default false
    */
-  allowTouchPredicate?: boolean
+  allowTouchSequence?: boolean
 
   /**
    * Called when RedDot is clicked. Implies that AdminMode is enabled.
@@ -75,7 +75,7 @@ export class AdminService {
   constructor(cfg?: AdminModeCfg) {
     this.cfg = {
       predicate: e => e.ctrlKey && e.key === 'L',
-      allowTouchPredicate: false,
+      allowTouchSequence: false,
       persistToLocalStorage: true,
       localStorageKey: '__adminMode__',
       onRedDotClick: NOOP,
@@ -93,7 +93,7 @@ export class AdminService {
   private listening = false
 
   /**
-   * Start listening to keyboard events (and touch events if allowTouchPredicate === true) to toggle AdminMode when detected.
+   * Start listening to keyboard and touch events to toggle AdminMode when detected.
    */
   startListening(): void {
     if (this.listening || isServerSide()) return
@@ -104,7 +104,7 @@ export class AdminService {
 
     document.addEventListener('keydown', this.keydownListener.bind(this), { passive: true })
 
-    if (this.cfg.allowTouchPredicate) {
+    if (this.cfg.allowTouchSequence) {
       document.addEventListener('touchstart', this.touchListener.bind(this), { passive: true })
     }
 
@@ -151,7 +151,7 @@ export class AdminService {
 
     if (this.sequenceIndex === sequence.length) {
       this.sequenceIndex = 1
-      await this.predicateFulfilled()
+      await this.checkAllowToggle()
     }
   }
 
@@ -166,10 +166,10 @@ export class AdminService {
   private async keydownListener(e: KeyboardEvent): Promise<void> {
     // console.log(e)
     if (!this.cfg.predicate(e)) return
-    await this.predicateFulfilled()
+    await this.checkAllowToggle()
   }
 
-  private async predicateFulfilled(): Promise<void> {
+  private async checkAllowToggle(): Promise<void> {
     try {
       const allow = await this.cfg[this.adminMode ? 'beforeExit' : 'beforeEnter']()
       if (!allow) return // no change

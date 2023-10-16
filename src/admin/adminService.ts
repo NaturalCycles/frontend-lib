@@ -107,7 +107,10 @@ export class AdminService {
   private async keydownListener(e: KeyboardEvent): Promise<void> {
     // console.log(e)
     if (!this.cfg.predicate(e)) return
+    await this.checkToggleRedDot()
+  }
 
+  async checkToggleRedDot(): Promise<void> {
     try {
       const allow = await this.cfg[this.adminMode ? 'beforeExit' : 'beforeEnter']()
       if (!allow) return // no change

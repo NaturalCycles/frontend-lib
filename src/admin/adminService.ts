@@ -128,26 +128,27 @@ export class AdminService {
       this.touchSequenceIndex = 1
       return
     }
-    const touchSequence: ((clientX: number, clientY: number) => boolean)[] = [
-      this.lowerLeftCorner,
-      this.lowerRightCorner,
-      this.lowerLeftCorner,
-      this.lowerRightCorner,
-      this.lowerLeftCorner,
-    ]
 
-    if (touchSequence[this.touchSequenceIndex]!(clientX, clientY)) {
+    if (this.touchSequence[this.touchSequenceIndex]!(clientX, clientY)) {
       this.touchSequenceIndex++
     } else {
       this.touchSequenceIndex = 1
       return
     }
 
-    if (this.touchSequenceIndex === touchSequence.length) {
+    if (this.touchSequenceIndex === this.touchSequence.length) {
       this.touchSequenceIndex = 1
       await this.checkAllowToggle()
     }
   }
+
+  private touchSequence: ((clientX: number, clientY: number) => boolean)[] = [
+    this.lowerLeftCorner,
+    this.lowerRightCorner,
+    this.lowerLeftCorner,
+    this.lowerRightCorner,
+    this.lowerLeftCorner,
+  ]
 
   private lowerRightCorner(clientX: number, clientY: number): boolean {
     const rightLowerCorner: [xAxis: number, yAxis: number] = [

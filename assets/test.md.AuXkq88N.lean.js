@@ -1,0 +1,1 @@
+import{_ as s,c as t,o as a,a2 as e}from"./chunks/framework.CycfJHJd.js";const g=JSON.parse('{"title":"Test page","description":"","frontmatter":{},"headers":[],"relativePath":"test.md","filePath":"test.md"}'),i={name:"test.md"},p=e("",3),n=[p];function l(h,o,c,r,d,k){return a(),t("div",null,n)}const E=s(i,[["render",l]]);export{g as __pageData,E as default};

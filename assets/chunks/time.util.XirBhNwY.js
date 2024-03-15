@@ -1,0 +1,1 @@
+function f(r,n=Date.now()){return e(n-r)}function e(r){if(r<1e3)return`${Math.round(r)} ms`;if(r<5e3)return`${(r/1e3).toFixed(3)} sec`;const n=Math.floor(r/1e3)%60,o=Math.floor(r/(60*1e3))%60,t=Math.floor(r/(3600*1e3));return t===0?o===0?`${n} sec`:`${o}m${n}s`:t<24?`${t}h${o}m`:t<48?`${Math.round(t+o/60)}h`:`${Math.floor(t/24)} days`}export{f as _,e as a};

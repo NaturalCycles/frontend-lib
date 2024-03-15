@@ -1,0 +1,1 @@
+import{_ as a,c as s,o as i,a2 as t}from"./chunks/framework.CycfJHJd.js";const y=JSON.parse('{"title":"Analytics","description":"","frontmatter":{},"headers":[],"relativePath":"analytics.md","filePath":"analytics.md"}'),l={name:"analytics.md"},e=t("",10),n=[e];function h(p,o,d,r,k,c){return i(),s("div",null,n)}const E=a(l,[["render",h]]);export{y as __pageData,E as default};

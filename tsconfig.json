@@ -3,8 +3,8 @@
   "compilerOptions": {
     "outDir": "dist",
     // "allowJs": true,
-    "target": "es2017" // es2017+ browsers
+    "target": "es2017", // es2017+ browsers
   },
   "include": ["src"],
-  "exclude": ["**/__exclude"]
+  "exclude": ["**/__exclude"],
 }

@@ -1,7 +1,7 @@
 {
   "name": "@naturalcycles/frontend-lib",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky",
     "build-prod": "build-prod-esm-cjs",
     "docs-dev": "vitepress dev docs --open",
     "docs-build": "vitepress build docs",

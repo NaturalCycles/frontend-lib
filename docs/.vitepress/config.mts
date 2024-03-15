@@ -25,7 +25,7 @@ export default defineConfig({
         text: 'Features',
         collapsed: false,
         items: [
-          { text: 'loadScript', link: '/loadScript' },
+          { text: 'loadScript, loadCSS', link: '/loadScript' },
           { text: 'TranslationService', link: '/translation' },
           { text: 'Analytics', link: '/analytics' },
           { text: 'AdminService', link: '/adminService' },

@@ -27,7 +27,7 @@ yarn add @naturalcycles/frontend-lib
 
 ## Features
 
-- [loadScript](loadScript.md)
+- [loadScript, loadCSS](loadScript.md)
 - [TranslationService](translation.md) <Badge text="experimental" type="warning"/>
 - [Analytics](analytics.md)
   - loadGTag

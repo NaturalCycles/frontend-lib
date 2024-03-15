@@ -1,4 +1,4 @@
-import { Promisable, _Memo, _stringifyAny, isServerSide } from '@naturalcycles/js-lib'
+import { Promisable, _Memo, _stringify, isServerSide } from '@naturalcycles/js-lib'
 
 export interface AdminModeCfg {
   /**
@@ -117,7 +117,7 @@ export class AdminService {
     } catch (err) {
       console.error(err)
       // ok to show alert to Admins, it's not user-facing
-      alert(_stringifyAny(err))
+      alert(_stringify(err))
       return // treat as "not allowed"
     }
 

@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "skipLibCheck": true, // because of the error in @types/markdown-it
+    "sourceMap": false,
+  },
+  "exclude": ["**/__exclude", "src/test", "src/**/*.test.*"],
+}

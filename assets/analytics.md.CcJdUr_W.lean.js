@@ -1,0 +1,1 @@
+import{_ as a,c as s,o as i,a2 as t}from"./chunks/framework.CLPIiXVi.js";const y=JSON.parse('{"title":"Analytics","description":"","frontmatter":{},"headers":[],"relativePath":"analytics.md","filePath":"analytics.md"}'),e={name:"analytics.md"},l=t("",10),n=[l];function h(p,d,o,r,k,c){return i(),s("div",null,n)}const E=a(e,[["render",h]]);export{y as __pageData,E as default};

@@ -1,4 +1,4 @@
-import { Promisable, _Memo, _stringify, isServerSide } from '@naturalcycles/js-lib'
+import { _Memo, _stringify, isServerSide, Promisable } from '@naturalcycles/js-lib'
 
 export interface AdminModeCfg {
   /**

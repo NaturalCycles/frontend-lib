@@ -15,8 +15,9 @@ export async function loadGTag(gtagId: string, enabled = true): Promise<void> {
   if (isServerSide()) return
 
   window.dataLayer ||= []
-  window.gtag = function () {
-    window.dataLayer.push(arguments) // eslint-disable-line prefer-rest-params
+  window.gtag = () => {
+    // biome-ignore lint/style/noArguments: ok
+    window.dataLayer.push(arguments)
   }
   window.gtag('js', new Date())
   window.gtag('config', gtagId)
@@ -47,12 +48,13 @@ export function loadHotjar(hjid: number): void {
   /* eslint-disable */
   // prettier-ignore
   ;
-  ;(function (h: any, o, t, j, a?: any, r?: any) {
+  ;((h: any, o, t, j, a?: any, r?: any) => {
     h.hj =
       h.hj ||
-      function () {
+      (() => {
+        // biome-ignore lint/style/noArguments: ok
         ;(h.hj.q = h.hj.q || []).push(arguments)
-      }
+      })
     h._hjSettings = { hjid, hjsv: 6 }
     a = o.querySelectorAll('head')[0]
     r = o.createElement('script')

@@ -87,6 +87,13 @@ export const topbar = {
       }
     }
   },
+  set(show: boolean, opts?: TopBarOptions) {
+    if (show) {
+      topbar.show(opts)
+    } else {
+      topbar.hide()
+    }
+  },
   show(opts?: TopBarOptions) {
     if (!browser) return // ssr protection
     if (opts) topbar.config(opts)

@@ -17,7 +17,7 @@ export async function loadGTag(gtagId: string, enabled = true): Promise<void> {
   if (isServerSide()) return
 
   window.dataLayer ||= []
-  window.gtag = () => {
+  window.gtag ||= () => {
     // biome-ignore lint/style/noArguments: ok
     window.dataLayer.push(arguments)
   }

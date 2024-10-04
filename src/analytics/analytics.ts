@@ -8,6 +8,8 @@ declare global {
   }
 }
 
+/* eslint-disable unicorn/prefer-global-this */
+
 /**
  * Pass enabled = false to only init window.gtag, but not load actual gtag script (e.g in dev mode).
  */

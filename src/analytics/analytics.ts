@@ -17,9 +17,8 @@ export async function loadGTag(gtagId: string, enabled = true): Promise<void> {
   if (isServerSide()) return
 
   window.dataLayer ||= []
-  window.gtag ||= () => {
-    // biome-ignore lint/style/noArguments: ok
-    window.dataLayer.push(arguments)
+  window.gtag ||= (...args: any[]) => {
+    window.dataLayer.push(...args)
   }
   window.gtag('js', new Date())
   window.gtag('config', gtagId)
@@ -41,7 +40,6 @@ export async function loadGTM(gtmId: string, enabled = true): Promise<void> {
   if (!enabled) return
 
   await loadScript(`https://www.googletagmanager.com/gtm.js?id=${gtmId}`)
-  console.log('gtm loaded')
 }
 
 export function loadHotjar(hjid: number): void {
@@ -53,9 +51,8 @@ export function loadHotjar(hjid: number): void {
   ;((h: any, o, t, j, a?: any, r?: any) => {
     h.hj =
       h.hj ||
-      (() => {
-        // biome-ignore lint/style/noArguments: ok
-        ;(h.hj.q = h.hj.q || []).push(arguments)
+      ((...args: any[]) => {
+        ;(h.hj.q = h.hj.q || []).push(...args)
       })
     h._hjSettings = { hjid, hjsv: 6 }
     a = o.querySelectorAll('head')[0]

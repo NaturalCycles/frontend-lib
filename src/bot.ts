@@ -15,15 +15,16 @@ class BotDetectionService {
 
   isBot(): boolean {
     // SSR - not a bot
-    if (isServerSide() || !navigator) return false
-
+    if (isServerSide()) return false
+    const { navigator } = globalThis
+    if (!navigator) return false
     const { userAgent } = navigator
     if (!userAgent) return true
 
-    if (/Headless/i.test(userAgent)) return true
-    if (/Electron/i.test(userAgent)) return true
-    if (/PhantomJS/i.test(userAgent)) return true
-    if (/slimerjs/i.test(userAgent)) return true
+    if (/headless/i.test(userAgent)) return true
+    if (/electron/i.test(userAgent)) return true
+    if (/phantom/i.test(userAgent)) return true
+    if (/slimer/i.test(userAgent)) return true
 
     if (navigator.webdriver) {
       return true
@@ -38,9 +39,11 @@ class BotDetectionService {
     }
 
     // isChrome is true if the browser is Chrome, Chromium or Opera
-    // if(isChrome && !window.chrome) {
-    //   return true // Headless Chrome
-    // }
+    // this is "the chrome test" from https://intoli.com/blog/not-possible-to-block-chrome-headless/
+    // this property is for some reason not present by default in headless chrome
+    if (userAgent.includes('Chrome') && !(globalThis as any).chrome) {
+      return true // Headless Chrome
+    }
 
     return false
   }

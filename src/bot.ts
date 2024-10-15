@@ -10,42 +10,44 @@ import { isServerSide } from '@naturalcycles/js-lib'
  */
 class BotDetectionService {
   isBotOrCDP(): boolean {
-    return this.isBot() || this.isCDP()
+    return !!this.isBot() || this.isCDP()
   }
 
-  isBot(): boolean {
+  /**
+   * Returns undefined if it's not a Bot,
+   * otherwise a truthy BotReason.
+   */
+  isBot(): BotReason | undefined {
     // SSR - not a bot
-    if (isServerSide()) return false
+    if (isServerSide()) return
     const { navigator } = globalThis
-    if (!navigator) return false
+    if (!navigator) return BotReason.NoNavigator
     const { userAgent } = navigator
-    if (!userAgent) return true
+    if (!userAgent) return BotReason.NoUserAgent
 
-    if (/headless/i.test(userAgent)) return true
-    if (/electron/i.test(userAgent)) return true
-    if (/phantom/i.test(userAgent)) return true
-    if (/slimer/i.test(userAgent)) return true
+    if (/headless/i.test(userAgent)) return BotReason.UserAgent
+    if (/electron/i.test(userAgent)) return BotReason.UserAgent
+    if (/phantom/i.test(userAgent)) return BotReason.UserAgent
+    if (/slimer/i.test(userAgent)) return BotReason.UserAgent
 
     if (navigator.webdriver) {
-      return true
+      return BotReason.WebDriver
     }
 
     if (navigator.plugins?.length === 0) {
-      return true // Headless Chrome
+      return BotReason.ZeroPlugins // Headless Chrome
     }
 
     if ((navigator.languages as any) === '') {
-      return true // Headless Chrome
+      return BotReason.EmptyLanguages // Headless Chrome
     }
 
     // isChrome is true if the browser is Chrome, Chromium or Opera
     // this is "the chrome test" from https://intoli.com/blog/not-possible-to-block-chrome-headless/
     // this property is for some reason not present by default in headless chrome
     if (userAgent.includes('Chrome') && !(globalThis as any).chrome) {
-      return true // Headless Chrome
+      return BotReason.ChromeWithoutChrome // Headless Chrome
     }
-
-    return false
   }
 
   /**
@@ -86,3 +88,13 @@ class BotDetectionService {
 }
 
 export const botDetectionService = new BotDetectionService()
+
+export enum BotReason {
+  NoNavigator = 1,
+  NoUserAgent = 2,
+  UserAgent = 3,
+  WebDriver = 4,
+  ZeroPlugins = 5,
+  EmptyLanguages = 6,
+  ChromeWithoutChrome = 7,
+}

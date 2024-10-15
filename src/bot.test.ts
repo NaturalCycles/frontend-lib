@@ -76,13 +76,13 @@ test('navigator.webdriver means bot', () => {
   expect(botDetectionService.isBot()).toBe(BotReason.WebDriver)
 })
 
-test('0 plugins means bot', () => {
-  globalThis.navigator = {
-    userAgent: userAgentSafari,
-    plugins: [] as any,
-  } as Navigator
-  expect(botDetectionService.isBot()).toBe(BotReason.ZeroPlugins)
-})
+// test('0 plugins means bot', () => {
+//   globalThis.navigator = {
+//     userAgent: userAgentSafari,
+//     plugins: [] as any,
+//   } as Navigator
+//   expect(botDetectionService.isBot()).toBe(BotReason.ZeroPlugins)
+// })
 
 test('"" languages means bot', () => {
   globalThis.navigator = {

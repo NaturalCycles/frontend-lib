@@ -34,9 +34,11 @@ class BotDetectionService {
       return BotReason.WebDriver
     }
 
-    if (navigator.plugins?.length === 0) {
-      return BotReason.ZeroPlugins // Headless Chrome
-    }
+    // Kirill: commented out, as it's no longer seems reliable,
+    // e.g generates false positives with latest Android clients (e.g. Chrome 129)
+    // if (navigator.plugins?.length === 0) {
+    //   return BotReason.ZeroPlugins // Headless Chrome
+    // }
 
     if ((navigator.languages as any) === '') {
       return BotReason.EmptyLanguages // Headless Chrome

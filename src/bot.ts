@@ -47,9 +47,10 @@ class BotDetectionService {
     // isChrome is true if the browser is Chrome, Chromium or Opera
     // this is "the chrome test" from https://intoli.com/blog/not-possible-to-block-chrome-headless/
     // this property is for some reason not present by default in headless chrome
-    if (userAgent.includes('Chrome') && !(globalThis as any).chrome) {
-      return BotReason.ChromeWithoutChrome // Headless Chrome
-    }
+    // Kirill: criterium removed due to false positives with Android
+    // if (userAgent.includes('Chrome') && !(globalThis as any).chrome) {
+    //   return BotReason.ChromeWithoutChrome // Headless Chrome
+    // }
   }
 
   /**

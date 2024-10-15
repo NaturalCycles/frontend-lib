@@ -92,12 +92,12 @@ test('"" languages means bot', () => {
   expect(botDetectionService.isBot()).toBe(BotReason.EmptyLanguages)
 })
 
-test('Chrome without chrome means bot', () => {
-  globalThis.navigator = {
-    userAgent: userAgentChrome,
-  } as Navigator
-  expect(botDetectionService.isBot()).toBe(BotReason.ChromeWithoutChrome)
-})
+// test('Chrome without chrome means bot', () => {
+//   globalThis.navigator = {
+//     userAgent: userAgentChrome,
+//   } as Navigator
+//   expect(botDetectionService.isBot()).toBe(BotReason.ChromeWithoutChrome)
+// })
 
 // This test helps with coverage, while not really testing anything useful
 test('cdp in jest looks like a bot, because it does error serialization', () => {

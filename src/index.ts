@@ -1,6 +1,5 @@
 export * from './admin/adminService'
 export * from './analytics/analytics'
-export * from './bot'
 export * from './i18n/fetchTranslationLoader'
 export * from './i18n/translation.service'
 export * from './image/imageFitter'

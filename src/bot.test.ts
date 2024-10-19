@@ -1,4 +1,4 @@
-import { botDetectionService, BotReason } from './bot'
+import { BotDetectionService, BotReason } from './bot'
 
 beforeEach(() => {
   Object.assign(globalThis, {
@@ -8,6 +8,8 @@ beforeEach(() => {
   })
 })
 
+const botDetectionService = new BotDetectionService()
+
 const userAgentChrome = 'Innocent Chrome 998 Mozilla IE Trident All Good Windows 95'
 const userAgentSafari = 'Innocent Safari 21 Apple Cupertino 991 Next'
 
@@ -15,8 +17,9 @@ test('serverSide script is not a bot', () => {
   Object.assign(globalThis, {
     window: undefined,
   })
-  expect(botDetectionService.isBot()).toBeUndefined()
+  expect(botDetectionService.getBotReason()).toBeNull()
   expect(botDetectionService.isCDP()).toBe(false)
+  expect(botDetectionService.isBot()).toBe(false)
   expect(botDetectionService.isBotOrCDP()).toBe(false)
 })
 
@@ -27,7 +30,7 @@ test('innocent chrome is not a bot', () => {
     } as Navigator,
     chrome: {},
   })
-  expect(botDetectionService.isBot()).toBeUndefined()
+  expect(botDetectionService.getBotReason()).toBeNull()
 })
 
 test('innocent safari is not a bot', () => {
@@ -36,36 +39,43 @@ test('innocent safari is not a bot', () => {
       userAgent: userAgentSafari,
     } as Navigator,
   })
-  expect(botDetectionService.isBot()).toBeUndefined()
+  expect(botDetectionService.getBotReason()).toBeNull()
 })
 
 test('no navigator means bot', () => {
-  expect(botDetectionService.isBot()).toBe(BotReason.NoNavigator)
+  expect(botDetectionService.getBotReason()).toBe(BotReason.NoNavigator)
+  expect(botDetectionService.isBot()).toBe(true)
+  expect(botDetectionService.isBotOrCDP()).toBe(true)
 })
 
 test('no userAgent means bot', () => {
   globalThis.navigator = {} as Navigator
-  expect(botDetectionService.isBot()).toBe(BotReason.NoUserAgent)
+  expect(botDetectionService.getBotReason()).toBe(BotReason.NoUserAgent)
+})
+
+test('"bot" in userAgent means bot', () => {
+  globalThis.navigator = { userAgent: 'KlaviyoBot' } as Navigator
+  expect(botDetectionService.getBotReason()).toBe(BotReason.UserAgent)
 })
 
 test('"headless" in userAgent means bot', () => {
   globalThis.navigator = { userAgent: 'HeadlessChrome' } as Navigator
-  expect(botDetectionService.isBot()).toBe(BotReason.UserAgent)
+  expect(botDetectionService.getBotReason()).toBe(BotReason.UserAgent)
 })
 
 test('"electron" in userAgent means bot', () => {
   globalThis.navigator = { userAgent: 'I am Electron 99' } as Navigator
-  expect(botDetectionService.isBot()).toBe(BotReason.UserAgent)
+  expect(botDetectionService.getBotReason()).toBe(BotReason.UserAgent)
 })
 
 test('"phantom" in userAgent means bot', () => {
   globalThis.navigator = { userAgent: 'Phantom Menace' } as Navigator
-  expect(botDetectionService.isBot()).toBe(BotReason.UserAgent)
+  expect(botDetectionService.getBotReason()).toBe(BotReason.UserAgent)
 })
 
 test('"slimer" in userAgent means bot', () => {
   globalThis.navigator = { userAgent: 'Slimer than Slime' } as Navigator
-  expect(botDetectionService.isBot()).toBe(BotReason.UserAgent)
+  expect(botDetectionService.getBotReason()).toBe(BotReason.UserAgent)
 })
 
 test('navigator.webdriver means bot', () => {
@@ -73,7 +83,7 @@ test('navigator.webdriver means bot', () => {
     userAgent: userAgentSafari,
     webdriver: true,
   } as Navigator
-  expect(botDetectionService.isBot()).toBe(BotReason.WebDriver)
+  expect(botDetectionService.getBotReason()).toBe(BotReason.WebDriver)
 })
 
 // test('0 plugins means bot', () => {
@@ -89,7 +99,7 @@ test('"" languages means bot', () => {
     userAgent: userAgentSafari,
     languages: '' as any,
   } as Navigator
-  expect(botDetectionService.isBot()).toBe(BotReason.EmptyLanguages)
+  expect(botDetectionService.getBotReason()).toBe(BotReason.EmptyLanguages)
 })
 
 // test('Chrome without chrome means bot', () => {

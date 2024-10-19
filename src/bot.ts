@@ -3,32 +3,59 @@
 
 import { isServerSide } from '@naturalcycles/js-lib'
 
+export interface BotDetectionServiceCfg {
+  /**
+   * Defaults to false.
+   * If true - the instance will memoize (remember) the results of the detection
+   * and won't re-run it.
+   */
+  memoizeResults?: boolean
+}
+
 /**
  * Service to detect bots and CDP (Chrome DevTools Protocol).
  *
  * @experimental
  */
-class BotDetectionService {
+export class BotDetectionService {
+  constructor(public cfg: BotDetectionServiceCfg = {}) {}
+
+  // memoized results
+  private botReason: BotReason | null | undefined
+  private cdp: boolean | undefined
+
   isBotOrCDP(): boolean {
-    return !!this.isBot() || this.isCDP()
+    return !!this.getBotReason() || this.isCDP()
+  }
+
+  isBot(): boolean {
+    return !!this.getBotReason()
   }
 
   /**
-   * Returns undefined if it's not a Bot,
+   * Returns null if it's not a Bot,
    * otherwise a truthy BotReason.
    */
-  isBot(): BotReason | undefined {
+  getBotReason(): BotReason | null {
+    if (this.cfg.memoizeResults && this.botReason !== undefined) {
+      return this.botReason
+    }
+
+    this.botReason = this.detectBotReason()
+    return this.botReason
+  }
+
+  private detectBotReason(): BotReason | null {
     // SSR - not a bot
-    if (isServerSide()) return
+    if (isServerSide()) return null
     const { navigator } = globalThis
     if (!navigator) return BotReason.NoNavigator
     const { userAgent } = navigator
     if (!userAgent) return BotReason.NoUserAgent
 
-    if (/headless/i.test(userAgent)) return BotReason.UserAgent
-    if (/electron/i.test(userAgent)) return BotReason.UserAgent
-    if (/phantom/i.test(userAgent)) return BotReason.UserAgent
-    if (/slimer/i.test(userAgent)) return BotReason.UserAgent
+    if (/bot|headless|electron|phantom|slimer/i.test(userAgent)) {
+      return BotReason.UserAgent
+    }
 
     if (navigator.webdriver) {
       return BotReason.WebDriver
@@ -51,6 +78,8 @@ class BotDetectionService {
     // if (userAgent.includes('Chrome') && !(globalThis as any).chrome) {
     //   return BotReason.ChromeWithoutChrome // Headless Chrome
     // }
+
+    return null
   }
 
   /**
@@ -67,6 +96,15 @@ class BotDetectionService {
    * Based on: https://deviceandbrowserinfo.com/learning_zone/articles/detecting-headless-chrome-puppeteer-2024
    */
   isCDP(): boolean {
+    if (this.cfg.memoizeResults && this.cdp !== undefined) {
+      return this.cdp
+    }
+
+    this.cdp = this.detectCDP()
+    return this.cdp
+  }
+
+  private detectCDP(): boolean {
     if (isServerSide()) return false
     let cdpCheck1 = false
     try {
@@ -90,14 +128,12 @@ class BotDetectionService {
   }
 }
 
-export const botDetectionService = new BotDetectionService()
-
 export enum BotReason {
   NoNavigator = 1,
   NoUserAgent = 2,
   UserAgent = 3,
   WebDriver = 4,
-  ZeroPlugins = 5,
+  // ZeroPlugins = 5,
   EmptyLanguages = 6,
-  ChromeWithoutChrome = 7,
+  // ChromeWithoutChrome = 7,
 }

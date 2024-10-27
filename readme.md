@@ -1,3 +1,6 @@
+DEPRECATED, all its functions are now moved to
+[@naturalcycles/js-lib](https://github.com/NaturalCycles/js-lib)
+
 ## @naturalcycles/frontend-lib
 
 > Standard library for Frontend applications
@@ -8,19 +11,3 @@
 [![Actions](https://github.com/NaturalCycles/frontend-lib/workflows/default/badge.svg)](https://github.com/NaturalCycles/frontend-lib/actions)
 
 # [Documentation](https://naturalcycles.github.io/frontend-lib/)
-
-# Develop
-
-## Docs
-
-Powered by [vuepress](https://github.com/vuejs/vuepress).
-
-    # serves from ./docs on http://localhost:8080
-    yarn docs-serve
-
-# Packaging
-
-- `main: dist/index.js`: commonjs, es2021
-- `module: dist-esm/index.js`: ESM, es2017
-- `types: dist/index.d.ts`: typescript types
-- `/src` folder with source `*.ts` files included

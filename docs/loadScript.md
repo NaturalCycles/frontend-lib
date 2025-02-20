@@ -1,7 +1,7 @@
 # loadScript, loadCSS
 
 ```typescript
-await loadScript('https://gtm.com/script.js')
+await loadScript('https://abc.com/script.js')
 // know that your script is loaded by now
 ```
 
